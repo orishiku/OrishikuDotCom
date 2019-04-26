@@ -3,6 +3,8 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.html import strip_tags
 from django.conf import settings
 from django.utils.text import slugify
+from django.contrib.sites.models import Site
+from django.utils.safestring import mark_safe
 
 ENTRY_STATUS_OPTIONS = (
     ('d','Draft'),
@@ -34,11 +36,21 @@ class Post(models.Model):
     
     @property
     def slug(self):
-        permalink = "{0}_{1}".format(
-            slugify(self.publish_date)[0:10],
-            slugify(self.title)[0:40])
-        return permalink
+        return slugify(self.title)[0:40]
     
+    @property
+    def permalink(self):
+        current_site = Site.objects.get_current()
+        date=self.publish_date
+        if date != None:
+            permalink = '/{0}/{1}/{2}/{3}'.format(
+                date.day, date.month, date.year,
+                self.slug)
+            url = "<a href='https://{0}{1}'>{1}</a>".format(
+                current_site,permalink)
+            return mark_safe(url)
+        else:
+            return None
     class Meta:
         verbose_name = _('post')
         verbose_name_plural = _('posts')
