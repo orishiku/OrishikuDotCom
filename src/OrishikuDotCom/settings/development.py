@@ -25,3 +25,6 @@ ROOT_URLCONF = 'OrishikuDotCom.urls.site'
 # https://docs.djangoproject.com/en/2.2/ref/contrib/sites/
 
 SITE_ID = 1
+
+# OPages 
+DEFAULT_TEMPLATE = 'Pages/default.html'
