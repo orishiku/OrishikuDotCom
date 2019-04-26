@@ -13,7 +13,12 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS += []
+INSTALLED_APPS += [
+    'django.contrib.flatpages',
+    'OPages.apps.OpagesConfig',
+]
+
+ROOT_URLCONF = 'OrishikuDotCom.urls.site'
 
 WSGI_APPLICATION = 'OrishikuDotCom.wsgi.site.application'
 
@@ -21,3 +26,6 @@ WSGI_APPLICATION = 'OrishikuDotCom.wsgi.site.application'
 # https://docs.djangoproject.com/en/2.2/ref/contrib/sites/
 
 SITE_ID = 1
+
+# OPages 
+DEFAULT_TEMPLATE = 'Pages/default.html'

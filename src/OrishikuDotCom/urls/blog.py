@@ -13,26 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib.sites.models import Site
 from django.contrib              import admin
 from django.conf.urls.static     import static
 from django.conf                 import settings
-from django.urls                 import path, include
+from django.urls                 import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/', include('OHook.urls'))
 ]
-
-if not settings.DEBUG:
-    current_site = Site.objects.get_current()
-    
-    if current_site.domain == ('orishiku.com' or 'localhost:8000'):
-        urlpatterns += []
-        
-    elif current_site.domain == 'blog.orishiku.com' or '127.0.0.1:8000':
-        urlpatterns += []
-
 if settings.DEBUG:
     urlpatterns += static(
         settings.STATIC_URL, document_root=settings.STATIC_ROOT)

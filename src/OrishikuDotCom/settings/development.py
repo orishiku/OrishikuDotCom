@@ -14,14 +14,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS += [
+    'django.contrib.flatpages',
     'OBlog.apps.OblogConfig',
+    'OPages.apps.OpagesConfig',
     ]
+
+ROOT_URLCONF = 'OrishikuDotCom.urls.site'
 
 # Sites 
 # https://docs.djangoproject.com/en/2.2/ref/contrib/sites/
 
 SITE_ID = 1
-
-# Fixtures
-# https://code.djangoproject.com/wiki/Fixtures
-FIXTURE_DIRS = [os.path.join(os.path.dirname(BASE_DIR), 'FIXTURES'),]

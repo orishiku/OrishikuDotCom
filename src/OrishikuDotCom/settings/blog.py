@@ -17,6 +17,8 @@ INSTALLED_APPS += [
     'OBlog.apps.OblogConfig',
     ]
 
+ROOT_URLCONF = 'OrishikuDotCom.urls.blog'
+
 WSGI_APPLICATION = 'OrishikuDotCom.wsgi.blog.application'
 
 # Sites 
