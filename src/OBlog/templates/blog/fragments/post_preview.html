@@ -1,9 +1,13 @@
 <article>
-	<header>
-		<h4>{{ post.title }}</h4>
-		<h6>By {{ post.author }} | {{ post.publish_date }} | Category: <a href="">{{ post.category }}</a></h6>	
-	</header>
 	<section>
+	<h4>{{ post.title }}</h4>
+	<hr/>
 	{{ post.get_preview }}...<a href="">(keep reading)</a>
 	</section>
+	<aside>
+	<h6>
+		By {{ post.author }}<br />
+		{{ post.publish_date }}<br />
+		Category: <a href="">{{ post.category }}</a></h6>
+	</aside>
 </article>
