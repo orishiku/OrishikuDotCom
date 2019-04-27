@@ -1,0 +1,9 @@
+<article>
+	<header>
+		<h4>{{ post.title }}</h4>
+		<h6>By {{ post.author }} | {{ post.publish_date }} | Category: <a href="">{{ post.category }}</a></h6>	
+	</header>
+	<section>
+	{{ post.get_preview }}...<a href="">(keep reading)</a>
+	</section>
+</article>

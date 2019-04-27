@@ -1,0 +1,22 @@
+<article>
+	<header>
+		<h4>{{ post.title }}</h4>
+		<h6>By {{ post.author }} | {{ post.publish_date }} | Category: <a href="">{{ post.category }}</a></h6>	
+	</header>
+	<section>
+	{{ post.content }}
+	</section>
+	<aside>
+		<div>
+		{{ post.side_content }}
+		</div>
+		<div class="post_tags">
+		{% for tag in tags %}
+			<span>{{ tag }}</span>
+		{% endfor %}
+		</div>
+	</aside>
+	<footer>
+		{# TODO: comments #}
+	</footer>
+</article>

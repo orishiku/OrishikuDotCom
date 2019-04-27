@@ -21,6 +21,12 @@ ROOT_URLCONF = 'OrishikuDotCom.urls.blog'
 
 WSGI_APPLICATION = 'OrishikuDotCom.wsgi.blog.application'
 
+TEMPLATES[0]['DIRS'] += [
+    os.path.join(BASE_DIR, 'OBlog', 'templates'),
+]
+
+STATICFILES_DIRS += []
+
 # Sites 
 # https://docs.djangoproject.com/en/2.2/ref/contrib/sites/
 

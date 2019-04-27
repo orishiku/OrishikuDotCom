@@ -21,6 +21,10 @@ INSTALLED_APPS += [
 
 ROOT_URLCONF = 'OrishikuDotCom.urls.site'
 
+TEMPLATES[0]['DIRS'] += []
+
+STATICFILES_DIRS += []
+
 # Sites 
 # https://docs.djangoproject.com/en/2.2/ref/contrib/sites/
 

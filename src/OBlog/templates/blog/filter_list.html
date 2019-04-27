@@ -1,0 +1,26 @@
+{% extends '../base.html' %}
+
+{% block title %}{% endblock %}
+
+{# If you want to handle 'header' 'main' 'footer' by yout self use 'container' block. #}
+
+{% block header %}
+	{{ filter }} list
+{% endblock %}
+
+{% block main %}
+	{% if filter_list.count > 0%}
+		{% for filter in filter_list%}
+<article>
+	<h4>{{ filter.name }}</h4>	
+</article>
+		{% endfor %}	
+	{% else %}
+		<h4>No {{ filter }} yet</h4>
+	{% endif %}
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block extra_styles %}{% endblock %}
+{% block extra_scripts %}{% endblock %}

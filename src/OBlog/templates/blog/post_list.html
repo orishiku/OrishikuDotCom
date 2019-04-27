@@ -1,0 +1,24 @@
+{% extends '../base.html' %}
+
+{% block title %}{% endblock %}
+
+{# If you want to handle 'header' 'main' 'footer' by yout self use 'container' block. #}
+
+{% block header %}
+	{{ filter.0 }}: {{ filter.1 }}
+{% endblock %}
+
+{% block main %}
+	{% if post_list.count > 0%}
+		{% for post in post_list%}
+{% include "Blog/fragments/post_preview.html" %}
+		{% endfor %}	
+	{% else %}
+		<h4>No posts yet</h4>
+	{% endif %}
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block extra_styles %}{% endblock %}
+{% block extra_scripts %}{% endblock %}
