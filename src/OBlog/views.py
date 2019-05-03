@@ -1,5 +1,7 @@
 from django.http import Http404
 from django.shortcuts import render
+from django.core.paginator import Paginator
+
 from OBlog.models import Post, Category, Tag
 
 def post(request, day, month, year, slug):
@@ -26,22 +28,36 @@ def filterList(request, filter_name):
     if filter_list:
         return render(request, 'blog/filter_list.html', {
             'filter_list':filter_list,
-            'filter': filter_name
+            'filter_name': filter_name
         })
     
     raise Http404("Poll does not exist")
 
-def postList(request, filter_name=None, value=None):
+def postList(request, filter_name=None, value=None, page=1):
     post_list = Post.objects.filter(status='p')
-        
+    filter = None
     if filter_name=='category':
-        post_list = Post.objects.filter(category__name=value)
+        categories = Category.objects.all()
+        
+        for c in categories:
+            if c.slug==value:
+                filter = c
+        post_list = Post.objects.filter(category__name=filter.name)
+        
     elif filter_name=='tag':
-        post_list.filter(tag__name=value)
+        tags = Tag.objects.all()
+        
+        for t in tags:
+            if t.slug==value:
+                filter = t
+        post_list.filter(tags__name=filter.name)
     
+    paginator = Paginator(post_list, 10)
+    list_page = paginator.get_page(page)
+    print(len(list_page))
     return render(request, 'blog/post_list.html', {
-        'post_list':post_list,
-        'filter': [filter_name, value]
+        'post_list':list_page,
+        'filter': [filter_name, filter]
     })
     
     raise Http404("Poll does not exist")

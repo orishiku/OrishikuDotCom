@@ -36,7 +36,9 @@ class Post(models.Model):
     
     @property
     def slug(self):
-        return slugify(self.title)[0:40]
+        t = slugify(self.title)[0:40]
+        id = self.id
+        return "{0}_{1}".format(t, id)
     
     @property
     def permalink(self):
@@ -62,6 +64,10 @@ class Post(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=50)
 
+    @property
+    def slug(self):
+        return slugify(self.name)
+    
     class Meta:
         verbose_name = _('category')
         verbose_name_plural = _('categories')
@@ -71,6 +77,10 @@ class Category(models.Model):
 
 class Tag(models.Model):
     name = models.CharField(max_length=50)
+    
+    @property
+    def slug(self):
+        return slugify(self.name)
     
     class Meta:
         verbose_name = _('tag')

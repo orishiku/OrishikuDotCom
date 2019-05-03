@@ -1,0 +1,15 @@
+{% extends '../base.html' %}{% load static %}
+
+{% block title %}{% endblock %}
+
+{% block header %}{% endblock %}
+{% block main %}
+<div class="container-blog">
+	<header>
+	{% block blog-header %}{% endblock %}
+	</header>
+	{% block blog-container %}{% endblock %}
+</div>
+{% endblock %}
+
+{% block extra_styles %}<link rel="stylesheet" href="{% static 'css/blog.min.css' %}">{% endblock %}

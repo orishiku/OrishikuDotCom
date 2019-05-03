@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.urls import path
 from OBlog       import views
-
+app_name = 'oblog'
 urlpatterns = [
     path('<slug:filter_name>/', views.filterList, name='filter_list'),
-    path('<slug:filter_name>/<int:page>', views.postList, name='filter_posts'),
+    path('<slug:filter_name>/<int:page>', views.postList, name='filter_list'),
     path('<slug:filter_name>/<slug:value>', views.postList, name='filter_posts'),
     path('<slug:filter_name>/<slug:value>/<int:page>', views.postList, name='filter_posts'),
     path('<int:day>/<int:month>/<int:year>/<slug:slug>', views.post, name='post'),

@@ -1,18 +1,14 @@
-{% extends '../base.html' %}
+{% extends 'blog/blog_base.html' %}
 
 {% block title %}{% endblock %}
 
 {# If you want to handle 'header' 'main' 'footer' by yout self use 'container' block. #}
 
-{% block header %}
-	{{ filter }} list
+{% block blog-header %}
+	<h1>{{ post.title }}</h1><br />
+	<h5>{{ post.publish_date }}</h5>	
 {% endblock %}
 
-{% block main %}
-{% include "Blog/fragments/post_full.html" %}
+{% block blog-container %}
+{% include "blog/fragments/post_full.html" %}
 {% endblock %}
-
-{% block footer %}{% endblock %}
-
-{% block extra_styles %}{% endblock %}
-{% block extra_scripts %}{% endblock %}

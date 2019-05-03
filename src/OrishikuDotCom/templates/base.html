@@ -19,18 +19,23 @@
 </head>
 
 <body>
-
-<div class="container">
+<div class="container-main">
 {% block container %}
-<header>
-	{% block header %}{% endblock %}
-</header>
-<section class="main blog">
+	<header>
+		{% block header %}{% endblock %}
+		<nav>
+			<ul class="menu-horizontal">
+				<li><a href="">Blog</a></li>
+				<li><a href="">Contacto</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section>
 	{% block main %}{% endblock %}
-</section>
-<footer>
+	</section>
+	<footer>
 	{% block footer %}{% endblock %}
-</footer>
+	</footer>
 {% endblock %}
 </div>
 

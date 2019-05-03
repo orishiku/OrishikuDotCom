@@ -60,7 +60,3 @@ target/
 \.pydevproject
 
 \.project
-
-src/OrishikuDotCom/db\.sqlite3
-
-*.sqlite3
