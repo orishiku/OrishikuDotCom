@@ -5,9 +5,10 @@ from OrishikuDotCom.settings._base import *
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'secret-key-site'
+GITHUB_WEBHOOK_KEY = 'secret-key-github'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['orishiku.com', 'www.orishiku.com']
 
@@ -16,6 +17,7 @@ ALLOWED_HOSTS = ['orishiku.com', 'www.orishiku.com']
 INSTALLED_APPS += [
     'django.contrib.flatpages',
     'OPages.apps.OpagesConfig',
+    'OWebhook.apps.OwebhookConfig'
 ]
 
 ROOT_URLCONF = 'OrishikuDotCom.urls.site'
@@ -33,6 +35,7 @@ SITE_ID = 1
 
 # OPages 
 DEFAULT_TEMPLATE = 'Pages/default.html'
+
 
 if not DEBUG:
     SECURE_PROXY_SSL_HEADER        = ('HTTP_X_FORWARDED_PROTO', 'https')

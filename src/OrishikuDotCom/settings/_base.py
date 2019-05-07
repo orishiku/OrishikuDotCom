@@ -14,6 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT_DIR = os.path.join(os.path.dirname(BASE_DIR))
 
 # Application definition
 
@@ -108,13 +109,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_URL  = '/static/'
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'STATIC')
+STATIC_ROOT = os.path.join(ROOT_DIR, 'STATIC')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'OrishikuDotCom','static'),
 ]
 
 MEDIA_URL  = '/media/'
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'MEDIA')
+MEDIA_ROOT = os.path.join(ROOT_DIR, 'MEDIA')
 
 # OAuth
 AUTH_USER_MODEL = 'oauth.User' 

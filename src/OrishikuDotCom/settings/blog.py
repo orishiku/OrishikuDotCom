@@ -7,7 +7,7 @@ from OrishikuDotCom.settings._base import *
 SECRET_KEY = 'secret-key-blog'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['blog.orishiku.com']
 
