@@ -7,7 +7,7 @@ from OrishikuDotCom.settings._base import *
 SECRET_KEY = 'secret-key-site'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['orishiku.com', 'www.orishiku.com']
 
@@ -33,6 +33,7 @@ SITE_ID = 1
 
 # OPages 
 DEFAULT_TEMPLATE = 'Pages/default.html'
+
 if not DEBUG:
     SECURE_PROXY_SSL_HEADER        = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_SSL_REDIRECT            = True
