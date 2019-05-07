@@ -22,6 +22,10 @@ ROOT_URLCONF = 'OrishikuDotCom.urls.site'
 
 WSGI_APPLICATION = 'OrishikuDotCom.wsgi.site.application'
 
+TEMPLATES[0]['DIRS'] += []
+
+STATICFILES_DIRS += []
+
 # Sites 
 # https://docs.djangoproject.com/en/2.2/ref/contrib/sites/
 
