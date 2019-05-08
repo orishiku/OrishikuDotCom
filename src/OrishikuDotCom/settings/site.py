@@ -4,7 +4,7 @@ from OrishikuDotCom.settings._base import *
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'secret-key-site'
+SECRET_KEY         = 'secret-key-site'
 GITHUB_WEBHOOK_KEY = 'secret-key-github'
 
 # SECURITY WARNING: don't run with debug turned on in production!
