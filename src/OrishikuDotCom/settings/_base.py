@@ -16,8 +16,10 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 ROOT_DIR = os.path.join(os.path.dirname(BASE_DIR))
 
-# Application definition
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
 
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -26,8 +28,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    
+    'django.contrib.flatpages',
  
-    'OAuth.apps.OauthConfig'
+    'OAuth.apps.OauthConfig',
+    'OPages.apps.OpagesConfig',
 ]
 
 MIDDLEWARE = [
@@ -40,6 +45,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
 ]
+
+# Database
+# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 TEMPLATES = [
     {
@@ -58,17 +73,6 @@ TEMPLATES = [
         },
     },
 ]
-
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -118,4 +122,29 @@ MEDIA_URL  = '/media/'
 MEDIA_ROOT = os.path.join(ROOT_DIR, 'MEDIA')
 
 # OAuth
-AUTH_USER_MODEL = 'oauth.User' 
+AUTH_USER_MODEL = 'oauth.User'
+
+# OPages 
+DEFAULT_TEMPLATE = 'pages/default.html'
+if not DEBUG:
+    dataConfigs = ConfigFile(os.path.join(ROOT_DIR,'secrets','database.txt'))
+    DATABASES = {
+        'default': {
+            'ENGINE':   dataConfigs.getKey('ENGINE'),
+            'NAME':     dataConfigs.getKey('NAME'),
+            'USER':     dataConfigs.getKey('USER'),
+            'PASSWORD': dataConfigs.getKey('PASSWORD'),
+            'HOST':     dataConfigs.getKey('HOST'),
+            'PORT':     dataConfigs.getKey('PORT'),
+        }
+    }
+    SECURE_PROXY_SSL_HEADER        = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_SSL_REDIRECT            = True
+    SESSION_COOKIE_SECURE          = True
+    CSRF_COOKIE_SECURE             = True
+    SECURE_HSTS_SECONDS            = True
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_CONTENT_TYPE_NOSNIFF    = True
+    SECURE_BROWSER_XSS_FILTER      = True
+    X_FRAME_OPTIONS                = 'DENY'
+    SECURE_HSTS_PRELOAD            = True
