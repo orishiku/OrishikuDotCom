@@ -60,3 +60,5 @@ target/
 \.pydevproject
 
 \.project
+
+secrets/
