@@ -19,22 +19,38 @@
 </head>
 
 <body>
+<div class="top-bar">
+
+</div>
 <div class="container-main">
 {% block container %}
 	<header>
+		<img class="main_logo" src="{% static 'img/logo-header.png' %}">
 		{% block header %}{% endblock %}
+		{% load flatpages %}
+		{% get_flatpages as flatpages %}
 		<nav>
 			<ul class="menu-horizontal">
-				<li><a href="">Blog</a></li>
-				<li><a href="">Contacto</a></li>
+				<li><a href="https://orishiku.com">Inicio</a></li>
+				<li><a href="https://blog.orishiku.com">Blog</a></li>
+	    {% for page in flatpages %}
+	    	{% if not page.enable_comments %}
+	        	<li><a href="p{{ page.url }}">{{ page.title }}</a></li>
+	        {% endif%}
+	    {% endfor %}				
 			</ul>
 		</nav>
 	</header>
-	<section>
-	{% block main %}{% endblock %}
+	<section class="container-{{ request.site.name }}">
+			<header>
+	{% block container-header %}{% endblock %}
+			</header>
+	{% block main %}	
+	{% endblock %}
 	</section>
 	<footer>
 	{% block footer %}{% endblock %}
+	
 	</footer>
 {% endblock %}
 </div>

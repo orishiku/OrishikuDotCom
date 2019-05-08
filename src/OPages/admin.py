@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.flatpages.models import FlatPage
 from django.contrib.flatpages.admin import FlatPageAdmin
 from django.utils.translation import ugettext_lazy as _
-
+from OPages.models import Page
 
 class FlatPageCustomAdmin(FlatPageAdmin):
     fieldsets = (

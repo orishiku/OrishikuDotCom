@@ -7,9 +7,10 @@
 	</p>
 	</section>
 	<aside>
-	<h6>
-		By {{ post.author }}<br />
-		{{ post.publish_date }}<br />
-		Category: <a href="{% url 'oblog:filter_posts' filter_name='category' value=post.category.slug %}">{{ post.category }}</a></h6>
+		<h6 class="icon-user"> {{ post.author.get_full_name }}</h6>
+		<hr />
+		<h6 class="icon-calendar"> {{ post.publish_date.date }}</h6>
+		<hr />
+		<h6 class="icon-list"> <a href="{% url 'oblog:filter_posts' filter_name='category' value=post.category.slug %}">{{ post.category }}</a></h6>
 	</aside>
 </article>

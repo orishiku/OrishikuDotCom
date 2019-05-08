@@ -19,9 +19,8 @@ from django.conf              import settings
 from django.urls              import path, include
 from django.contrib.flatpages import views
 
-views.DEFAULT_TEMPLATE = 'Pages/default.html'
-
 urlpatterns = [
+     path('', views.flatpage, {'url': '/home/'}, name='home'),
     path('admin/', admin.site.urls),
     path('', include('OWebhook.urls')),
 ]
@@ -33,5 +32,5 @@ if settings.DEBUG:
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += [
-    path('', include('OPages.urls')),
+    path('p/', include('OPages.urls')),
 ]

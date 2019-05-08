@@ -4,11 +4,11 @@
 
 {# If you want to handle 'header' 'main' 'footer' by yout self use 'container' block. #}
 
-{% block blog-header %}
+{% block container-header %}
 	<h3>{{ filter_name }} list</h3>
 {% endblock %}
 
-{% block blog-container  %}
+{% block main  %}
 	{% if filter_list.count > 0%}
 		{% for filter in filter_list%}
 <article>

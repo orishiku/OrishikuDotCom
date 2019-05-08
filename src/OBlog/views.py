@@ -54,8 +54,15 @@ def postList(request, filter_name=None, value=None, page=1):
     
     paginator = Paginator(post_list, 10)
     list_page = paginator.get_page(page)
-    print(len(list_page))
-    return render(request, 'blog/post_list.html', {
+    
+    data = { 'post_list':list_page }
+    template = 'blog/main_site.html'
+    
+    if filter_name:
+        data.update({ 'filter': [filter_name, filter] })
+        template = 'blog/post_list.html'
+        
+    return render(request, template, {
         'post_list':list_page,
         'filter': [filter_name, filter]
     })

@@ -5,11 +5,7 @@
 {# If you want to handle 'header' 'main' 'footer' by yout self use 'container' block. #}
 
 {% block container-header %}
-	{% if filter.0 == 'category' %}
-	<h4>Categoria: {{ filter.1.name }}</h4>
-	{% elif filter.0 == 'tag' %}
-	<h4>Tag: {{ filter.1.name }}</h4>
-	{% endif %}
+	<h3></h3>
 {% endblock %}
 
 {% block main %}

@@ -17,6 +17,8 @@ from django.urls import path
 from OBlog       import views
 app_name = 'oblog'
 urlpatterns = [
+    path('', views.postList, name='main_list'),
+    path('<int:page>', views.postList, name='main_list'),
     path('<slug:filter_name>/', views.filterList, name='filter_list'),
     path('<slug:filter_name>/<int:page>', views.postList, name='filter_list'),
     path('<slug:filter_name>/<slug:value>', views.postList, name='filter_posts'),
