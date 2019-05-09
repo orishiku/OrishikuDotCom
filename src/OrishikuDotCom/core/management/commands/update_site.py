@@ -12,6 +12,6 @@ class Command(BaseCommand):
         repository_path = kwargs['repository_path']
         repo = Repo(repository_path)
 
-        repo.fetch('--all')
-        repo.git.reset('--hard origin/release/alpha')
+        repo.git.fetch('--all')
+        repo.git.reset('--hard','origin/release/alpha')
         

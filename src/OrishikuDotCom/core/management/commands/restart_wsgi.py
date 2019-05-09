@@ -7,11 +7,10 @@ class Command(BaseCommand):
     help = 'Restart wsgi server'
     
     def handle(self, *args, **kwargs):
-        subprocess.call(
-            ["touch", os.path.join(
-                settings.BASE_DIR,'OrishikuDotCom','wsgi','site.py')])
-        subprocess.call(
-            ["touch", os.path.join(
-                settings.BASE_DIR,'OrishikuDotCom','wsgi','blog.py')])
+        wsgi_path = os.path.join(settings.BASE_DIR,'OrishikuDotCom','wsgi')
+        print(wsgi_path);
+        subprocess.call(["touch",os.path.join(wsgi_path,'site.py')])
+        subprocess.call(["touch",os.path.join(wsgi_path,'blog.py')])
+        
         
         
