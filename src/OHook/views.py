@@ -1,14 +1,15 @@
+import hmac
+import requests
+
+from ipaddress import ip_address, ip_network
+from hashlib import sha1
+
 from django.http import HttpResponse, HttpResponseForbidden,HttpResponseServerError
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.conf import settings
 from django.utils.encoding import force_bytes
-import requests
-from ipaddress import ip_address, ip_network
-import hmac
-from hashlib import sha1
-import subprocess
-import os
+
 from django.core.management import call_command
 
 @require_POST

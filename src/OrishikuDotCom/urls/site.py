@@ -22,7 +22,7 @@ from django.contrib.flatpages import views
 urlpatterns = [
      path('', views.flatpage, {'url': '/home/'}, name='home'),
     path('admin/', admin.site.urls),
-    path('', include('OWebhook.urls')),
+    path('', include('OHook.urls')),
 ]
 
 if settings.DEBUG:
