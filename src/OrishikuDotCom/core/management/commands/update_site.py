@@ -13,5 +13,5 @@ class Command(BaseCommand):
         repo = Repo(repository_path)
 
         repo.git.fetch('--all')
-        repo.git.reset('--hard origin/release/alpha')
+        repo.git.reset('--hard','origin/release/alpha')
         
