@@ -1,0 +1,26 @@
+{% extends 'blog/blog_base.html' %}
+
+{% block title %}{% endblock %}
+
+{# If you want to handle 'header' 'main' 'footer' by yout self use 'container' block. #}
+
+{% block container-header %}
+	{% if filter.0 == 'category' %}
+	<h4>Categoria: {{ filter.1.name }}</h4>
+	{% elif filter.0 == 'tag' %}
+	<h4>Tag: {{ filter.1.name }}</h4>
+	{% endif %}
+{% endblock %}
+
+{% block main %}
+	{% if post_list.start_index > 0 %}
+		{% for post in post_list%}
+{% include "blog/fragments/post_preview.html" %}
+
+		{% endfor %}
+{% include "blog/fragments/pages_list.html" %}
+
+	{% else %}
+		<h4>No posts yet</h4>
+	{% endif %}
+{% endblock %}

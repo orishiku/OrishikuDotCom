@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+
+<title>{% block title %}{% endblock %}</title>
+
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" href="{% static '/favicon.ico' %}" type="image/x-icon">
+
+<link rel="stylesheet" href="{% static 'css/base.min.css' %}">
+{% block extra_styles %}{% endblock %}
+</head>
+
+<body>
+<div class="top-bar">
+
+</div>
+<div class="container-main">
+{% block container %}
+	<header>
+		<img class="main_logo" src="{% static 'img/logo-header.png' %}">
+		{% block header %}{% endblock %}
+		{% load flatpages %}
+		{% get_flatpages as flatpages %}
+		<nav>
+			<ul class="menu-horizontal">
+				<li><a href="https://orishiku.com">Inicio</a></li>
+				<li><a href="https://blog.orishiku.com">Blog</a></li>
+	    {% for page in flatpages %}
+	    	{% if not page.enable_comments %}
+	        	<li><a href="p{{ page.url }}">{{ page.title }}</a></li>
+	        {% endif%}
+	    {% endfor %}				
+			</ul>
+		</nav>
+	</header>
+	<section class="container-{{ request.site.name }}">
+			<header>
+	{% block container-header %}{% endblock %}
+			</header>
+	{% block main %}	
+	{% endblock %}
+	</section>
+	<footer>
+	{% block footer %}{% endblock %}
+	
+	</footer>
+{% endblock %}
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="{% static 'js/base.js' %}"></script>
+{% block extra_scripts %}{% endblock %}
+</body>
+</html>

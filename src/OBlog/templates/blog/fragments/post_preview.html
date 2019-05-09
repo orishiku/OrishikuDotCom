@@ -1,0 +1,16 @@
+<article>
+	<section>
+	<h4>{{ post.title }}</h4>
+	<hr/>
+	<p>
+	{{ post.get_preview }}...<a href="{%url 'oblog:post' day=post.publish_date.day month=post.publish_date.month year=post.publish_date.year slug=post.slug %}">(keep reading)</a>
+	</p>
+	</section>
+	<aside>
+		<h6 class="icon-user"> {{ post.author.get_full_name }}</h6>
+		<hr />
+		<h6 class="icon-calendar"> {{ post.publish_date.date }}</h6>
+		<hr />
+		<h6 class="icon-list"> <a href="{% url 'oblog:filter_posts' filter_name='category' value=post.category.slug %}">{{ post.category }}</a></h6>
+	</aside>
+</article>

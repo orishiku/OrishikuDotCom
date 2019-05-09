@@ -1,0 +1,11 @@
+<div class="paginator">
+{% for p in post_list.paginator.page_range %}
+	{% if p == post_list.number %}
+<span>{{p}}</span>
+	{% elif filter.0 %}
+<a href="{% url 'oblog:filter_posts' filter_name=filter.0 value=filter.1.slug page=p %}">{{p}}</a>
+	{% else %}
+<a href="{% url 'oblog:main_list' page=p %}">{{p}}</a>
+	{% endif %}
+{% endfor%}
+</div>

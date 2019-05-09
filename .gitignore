@@ -56,3 +56,9 @@ docs/_build/
 
 # PyBuilder
 target/
+/scripts/
+/secrets/
+
+\.project
+
+\.pydevproject

@@ -1,0 +1,28 @@
+{% load static %}
+<article>
+	<section>
+	{{ post.content | safe }}
+	</section>
+	<aside class="author">
+		{% if post.author.avatar %}
+		<img src="{{ post.author.avatar }}" alt="author_avatar"/>
+		{% else %}
+		<img src="{% static 'img/avatar-default.png' %}" alt="author_avatar"/>
+		{% endif %}
+		<div>By {{ post.author }}</div>
+	</aside> 
+	<aside>
+		<b>Category:</b><a href="{%url 'oblog:filter_posts' filter_name='category' value=post.category.slug %}" class="category">{{ post.category }}</a>
+		<hr />
+		<b>Tags:</b>		
+		{% for tag in post.tags.all %}
+			<a href="{%url 'oblog:filter_posts' filter_name='tag' value=tag.slug %}" class="tag">{{ tag }}</a>
+		{% endfor %}
+	</aside>
+	<aside class="extra">
+		{{ post.side_content | safe }}
+	</aside>
+	<footer>
+		{# TODO: comments #}
+	</footer>
+</article>
