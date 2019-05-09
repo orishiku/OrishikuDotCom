@@ -52,5 +52,8 @@ def hello(request):
     # In case we receive an event that's neither a ping or push
     return HttpResponse(status=204)
 
+
 def update():
     call_command('update_site', settings.ROOT_DIR)
+    call_command('restart_wsgi', settings.ROOT_DIR)
+    
