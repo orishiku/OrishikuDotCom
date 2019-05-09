@@ -9,6 +9,7 @@ import hmac
 from hashlib import sha1
 import subprocess
 import os
+from django.core.management import call_command
 
 @require_POST
 @csrf_exempt
@@ -44,9 +45,11 @@ def hello(request):
         return HttpResponse('pong')
     elif event == 'push':
         # Do something...
-        subprocess.call("{0}".format(os.path.join(settings.ROOT_DIR, 'scripts', 'update.sh')))
-        
+        update()
         return HttpResponse('success')
 
     # In case we receive an event that's neither a ping or push
     return HttpResponse(status=204)
+
+def update():
+    call_command('update_site', settings.ROOT_DIR)
