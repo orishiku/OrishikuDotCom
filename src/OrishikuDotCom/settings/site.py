@@ -17,7 +17,7 @@ ALLOWED_HOSTS = ['orishiku.com', 'www.orishiku.com']
 # Application definition
 
 INSTALLED_APPS += [
-    'OWebhook.apps.OwebhookConfig',
+    'OHook.apps.OhookConfig',
 ]
 
 ROOT_URLCONF = 'OrishikuDotCom.urls.site'
