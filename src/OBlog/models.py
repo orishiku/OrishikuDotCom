@@ -12,7 +12,7 @@ ENTRY_STATUS_OPTIONS = (
 )
 
 class Post(models.Model):
-    title        = models.CharField(max_length=50)
+    title        = models.CharField(max_length=100)
     content      = models.TextField()
     side_content = models.TextField(null=True)
     #cover         = models.models.ForeignKey('Media', on_delete=models.CASCADE)
@@ -31,8 +31,11 @@ class Post(models.Model):
     
     @property
     def get_preview(self):
-        cleaned_content = strip_tags(self.content)
-        return cleaned_content[0:1000]
+        preview_content = self.content.split('</p>')
+        preview_content = strip_tags(preview_content[0])
+        preview_content = preview_content[0:1000]
+        #cleaned_content = strip_tags(self.content)
+        return preview_content
     
     @property
     def slug(self):
@@ -48,7 +51,7 @@ class Post(models.Model):
             permalink = '/{0}/{1}/{2}/{3}'.format(
                 date.day, date.month, date.year,
                 self.slug)
-            url = "<a href='https://{0}{1}'>{1}</a>".format(
+            url = "<a href='{1}'>{1}</a>".format(
                 current_site,permalink)
             return mark_safe(url)
         else:

@@ -10,23 +10,59 @@
 	{{ flatpage.content }}
 	</section>
 </article>
+{% load blog_tags %}
 <article>
 	<h1>Lo más reciente:</h1>
 	<section class="sections_1">
 		<a href="" class="title">Programación</a>
-		<div>
-		</div>
+		{% posts_in_category 'programacion' 3 as posts %}
+		{% if posts.count > 0%}
+		{% for post in posts%}
+			{% include '../fragments/post_preview.html' %}
+			<hr/>
+		{% endfor %}
+		{% else %}
+		<article>
+		<section>
+		<h4>Sin publicaciones...</h4>
+		</section>
+		<hr/>
+		</article>
+		{% endif %}
 	</section>
 	<section class="sections_2">
 		<a href="" class="title">Geek</a>
-		<div>
-		</div>
+		{% posts_in_category 'geek' 3 as posts %}
+		{% if posts.count > 0%}
+		{% for post in posts%}
+			{% include '../fragments/post_minimal.html' %}
+			<hr/>
+		{% endfor %}
+		{% else %}
+		<article>
+		<section>
+		<h4>Sin publicaciones...</h4>
+		</section>
+		<hr/>
+		</article>
+		{% endif %}
 	</section>
 	<section class="sections_2">
 		<a href="" class="title">Literatura</a>
-		<div>
-		</div>
-	</section>
+		{% posts_in_category 'literatura' 3 as posts %}
+		{% if posts.count > 0%}
+		{% for post in posts%}
+			{% include '../fragments/post_minimal.html' %}
+			<hr/>
+		{% endfor %}
+		{% else %}
+		<article>
+		<section>
+		<h4>Sin publicaciones...</h4>
+		</section>
+		<hr/>
+		</article>
+		{% endif %}
 </article>
 {% endblock %}
 {% block footer %}{% endblock %}
