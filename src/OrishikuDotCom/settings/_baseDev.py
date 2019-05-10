@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'OrishikuDotCom.core.apps.CoreConfig',
     'OAuth.apps.OauthConfig',
     'OPages.apps.OpagesConfig',
+    'OBlog.apps.OblogConfig',
 ]
 
 MIDDLEWARE = [
@@ -71,6 +72,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries':{
+                'blog_tags' : 'OBlog.templatetags.posts_tags',
+            }
         },
     },
 ]

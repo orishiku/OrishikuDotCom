@@ -108,7 +108,7 @@ blockquote {
 cite {
   font-style: italic; }
 
-code {
+code, .code {
   font-size: 0.96rem;
   font-family: monospace;
   background: #EEEEEE;
@@ -2164,28 +2164,28 @@ article.grid-examples {
       article.grid-examples .box.-tall code {
         font-size: 0.8rem; } }
 
-div.container-main > header, div.container-main > footer {
+div.container-main > header, div.container-main > footer, div.container-main > section {
   display: block;
   float: left;
   width: 100%;
   margin-left: 0%;
   margin-right: 0; }
   @media (min-width: 1200px) {
-    div.container-main > header, div.container-main > footer {
+    div.container-main > header, div.container-main > footer, div.container-main > section {
       display: block;
       float: left;
       width: 100%;
       margin-left: 0%;
       margin-right: 0; } }
   @media (max-width: 1024px) {
-    div.container-main > header, div.container-main > footer {
+    div.container-main > header, div.container-main > footer, div.container-main > section {
       display: block;
       float: left;
       width: 100%;
       margin-left: 0%;
       margin-right: 0; } }
   @media (max-width: 800px) {
-    div.container-main > header, div.container-main > footer {
+    div.container-main > header, div.container-main > footer, div.container-main > section {
       display: block;
       float: left;
       width: 100%;
@@ -2198,37 +2198,47 @@ body {
 div.container-main {
   margin-top: 40px; }
   div.container-main > header {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     position: relative;
-    height: 300px;
+    height: 250px;
+    max-height: 300px;
     background: #D1C4E9;
-    border-radius: 1em 0 0 0; }
-    div.container-main > header img.main_logo {
-      background: #009688;
-      padding: 1em;
-      border-radius: 1em 0; }
+    border-radius: 1em 0 0 0;
+    background-image: url("../img/banner.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% 0%;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden; }
+    div.container-main > header div.main_logo {
+      text-shadow: #212121 0px 0px 15px, #212121 0px 0px 5px;
+      padding: 20px;
+      border-radius: 20px 0;
+      display: inline-block;
+      font-family: "Trebuchet MS", sans-serif;
+      font-size: 40px;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #FFFFFF; }
     div.container-main > header nav {
       position: absolute;
-      bottom: 0px;
+      bottom: -20px;
+      left: 0;
       right: 0px;
-      height: 34px; }
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1em; }
       div.container-main > header nav a {
         font-family: "Trebuchet MS", sans-serif;
         font-size: 26px;
         font-size: 1.625rem;
-        background-color: #009688;
-        color: #FFFFFF;
         padding: 10px;
-        margin-left: 3px;
+        color: #FFFFFF;
         border-radius: 5px 5px 0 0; }
-        div.container-main > header nav a:hover {
-          background-color: #00877a;
-          text-decoration: none; }
-        div.container-main > header nav a:active {
-          background: #00776c; }
-        div.container-main > header nav a.disabled {
-          background-color: #00a394;
-          color: #004a43;
-          cursor: default; }
+      div.container-main > header nav li {
+        margin-bottom: 20px; }
   div.container-main > footer {
     background: #673AB7;
     color: #FFFFFF;
@@ -2403,10 +2413,151 @@ div.container-main {
           margin-left: 5%;
           margin-right: 5%; } }
 
-section.container-site article {
-  background: white; }
-  section.container-site article section {
-    padding: 1.5em; }
+section.container-site article hr {
+  margin-bottom: 0; }
+
+section.container-site article section {
+  background: white;
+  padding: 1.5em;
+  text-align: justify; }
+  section.container-site article section[class*="sections_"] {
+    margin-top: 20px;
+    padding: 0; }
+    section.container-site article section[class*="sections_"] > div {
+      padding: 25px 10px 10px 10px; }
+  section.container-site article section.sections_1 {
+    display: block;
+    float: left;
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%; }
+    @media (min-width: 1200px) {
+      section.container-site article section.sections_1 {
+        display: block;
+        float: left;
+        width: 98%;
+        margin-left: 1%;
+        margin-right: 1%; } }
+    @media (max-width: 1024px) {
+      section.container-site article section.sections_1 {
+        display: block;
+        float: left;
+        width: 98%;
+        margin-left: 1%;
+        margin-right: 1%; } }
+    @media (max-width: 800px) {
+      section.container-site article section.sections_1 {
+        display: block;
+        float: left;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%; } }
+  section.container-site article section.sections_2 {
+    display: block;
+    float: left;
+    width: 48%;
+    margin-left: 1%;
+    margin-right: 1%; }
+    @media (min-width: 1200px) {
+      section.container-site article section.sections_2 {
+        display: block;
+        float: left;
+        width: 48%;
+        margin-left: 1%;
+        margin-right: 1%; } }
+    @media (max-width: 1024px) {
+      section.container-site article section.sections_2 {
+        display: block;
+        float: left;
+        width: 73%;
+        margin-left: 1%;
+        margin-right: 1%; } }
+    @media (max-width: 800px) {
+      section.container-site article section.sections_2 {
+        display: block;
+        float: left;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%; } }
+  section.container-site article section.sections_3 {
+    display: block;
+    float: left;
+    width: 31.33333%;
+    margin-left: 1%;
+    margin-right: 1%; }
+    @media (min-width: 1200px) {
+      section.container-site article section.sections_3 {
+        display: block;
+        float: left;
+        width: 31.33333%;
+        margin-left: 1%;
+        margin-right: 1%; } }
+    @media (max-width: 1024px) {
+      section.container-site article section.sections_3 {
+        display: block;
+        float: left;
+        width: 48%;
+        margin-left: 1%;
+        margin-right: 1%; } }
+    @media (max-width: 800px) {
+      section.container-site article section.sections_3 {
+        display: block;
+        float: left;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%; } }
+  section.container-site article section.sections_4 {
+    display: block;
+    float: left;
+    width: 23%;
+    margin-left: 1%;
+    margin-right: 1%; }
+    @media (min-width: 1200px) {
+      section.container-site article section.sections_4 {
+        display: block;
+        float: left;
+        width: 23%;
+        margin-left: 1%;
+        margin-right: 1%; } }
+    @media (max-width: 1024px) {
+      section.container-site article section.sections_4 {
+        display: block;
+        float: left;
+        width: 35.5%;
+        margin-left: 1%;
+        margin-right: 1%; } }
+    @media (max-width: 800px) {
+      section.container-site article section.sections_4 {
+        display: block;
+        float: left;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%; } }
+  section.container-site article section > .title {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 26px;
+    font-size: 1.625rem;
+    background-color: #009688;
+    color: #FFFFFF;
+    padding: 10px;
+    margin-left: -10px; }
+    section.container-site article section > .title:hover {
+      background-color: #00877a;
+      text-decoration: none; }
+    section.container-site article section > .title:active {
+      background: #00776c; }
+    section.container-site article section > .title.disabled {
+      background-color: #00a394;
+      color: #004a43;
+      cursor: default; }
+  section.container-site article section > div {
+    display: table-cell; }
+    section.container-site article section > div.side {
+      width: 200px; }
+  section.container-site article section img.circle {
+    width: 200px;
+    margin: 1em;
+    border-radius: 100px; }
 
 section[class*="container-"] > * {
   display: block;
@@ -2457,9 +2608,8 @@ section[class*="container-"] > header {
   width: 100%;
   margin-left: 0%;
   margin-right: 0;
-  background: #673AB7;
+  background: #009688;
   color: #FFFFFF;
-  padding: 2em;
   margin-bottom: 10px; }
   @media (min-width: 1200px) {
     section[class*="container-"] > header {

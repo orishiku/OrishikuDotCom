@@ -1,7 +1,7 @@
 import hmac
 import requests
-import time
 import os
+import stat
 
 from ipaddress import ip_address, ip_network
 from hashlib import sha1
@@ -11,7 +11,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.conf import settings
 from django.utils.encoding import force_bytes
-from multiprocessing import Process, Queue
 
 from django.core.management import call_command
 import subprocess
@@ -49,19 +48,16 @@ def hello(request):
     if event == 'ping':
         return HttpResponse('pong')
     elif event == 'push':
-        # Do something...
-        update()
+        update_script = os.path.join(os.path.dirname(settings.ROOT_DIR),'update.sh')
+            
+        subprocess.Popen("sh {0} -p {1} -a {2}".format(update_script,
+                                                    settings.ROOT_DIR,
+                                                    'release/alpha'),
+                        stdout=subprocess.PIPE, 
+                        shell=True, 
+                        stderr=subprocess.STDOUT)
+        
         return HttpResponse('success')
 
     # In case we receive an event that's neither a ping or push
     return HttpResponse(status=204)
-
-
-def update():
-    call_command('update_site', settings.ROOT_DIR)
-    wsgi_path = os.path.join(settings.BASE_DIR, 'OrishikuDotCom', 'wsgi')
-    print(wsgi_path)
-    command = "sleep 5; touch {0}; touch {1}".format(
-        os.path.join(wsgi_path, 'site.py'),
-        os.path.join(wsgi_path, 'blog.py'))
-    subprocess.Popen(command, stdout=subprocess.PIPE, shell=True, stderr=subprocess.STDOUT)
