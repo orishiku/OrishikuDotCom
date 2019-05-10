@@ -49,8 +49,13 @@ def hello(request):
     if event == 'ping':
         return HttpResponse('pong')
     elif event == 'push':
-        # Do something...
-        update()
+        subprocess.Popen("{0} -p {1} -a {2}".format(
+            os.path.join(settings.ROOT_DIR,'scripts','update.sh'),
+            settings.ROOT_DIR,
+            'release/alpha'), 
+                         stdout=subprocess.PIPE, 
+                         shell=True, 
+                         stderr=subprocess.STDOUT)
         return HttpResponse('success')
 
     # In case we receive an event that's neither a ping or push

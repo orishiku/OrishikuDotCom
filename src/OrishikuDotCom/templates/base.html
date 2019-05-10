@@ -34,7 +34,7 @@
 				<li><a href="https://blog.orishiku.com">Blog</a></li>
 	    {% for page in flatpages %}
 	    	{% if not page.enable_comments %}
-	        	<li><a href="p{{ page.url }}">{{ page.title }}</a></li>
+	        	<li><a href="/p{{ page.url }}">{{ page.title }}</a></li>
 	        {% endif%}
 	    {% endfor %}				
 			</ul>
