@@ -6,6 +6,7 @@ from OBlog.models import Post,Tag, Category
 class PostAdmin(admin.ModelAdmin):
     list_display = ['title', 'author','status', 'edit_date', 'permalink']
     readonly_fields = ['creation_date', 'edit_date', 'publish_date']
+    ordering = ('-creation_date',)
     
     def save_model(self, request, obj, form, change):
         old_obj = Post.objects.filter(pk=obj.pk)

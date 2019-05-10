@@ -23,7 +23,7 @@
 {% block container %}
 	<header>
 		<div class="main_logo">
-		Francisco Prieto
+		Orishiku.com
 		</div>
 		{% block header %}{% endblock %}
 		{% load flatpages %}
@@ -34,16 +34,16 @@
 				<li><a href="https://blog.orishiku.com">Blog</a></li>
 	    {% for page in flatpages %}
 	    	{% if not page.enable_comments %}
-	        	<li><a href="p{{ page.url }}">{{ page.title }}</a></li>
+	        	<li><a href="/p{{ page.url }}">{{ page.title }}</a></li>
 	        {% endif%}
 	    {% endfor %}				
 			</ul>
 		</nav>
 	</header>
 	<section class="container-{{ request.site.name }}">
-			<header>
+			<header>{% spaceless %}
 	{% block container-header %}{% endblock %}
-			</header>
+			{% endspaceless %}</header>
 	{% block main %}	
 	{% endblock %}
 	</section>

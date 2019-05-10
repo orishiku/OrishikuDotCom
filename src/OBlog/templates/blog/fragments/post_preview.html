@@ -1,16 +1,35 @@
 <article>
 	<section>
-	<h4>{{ post.title }}</h4>
-	<hr/>
+	<a href="{%url 'oblog:post' day=post.publish_date.day month=post.publish_date.month year=post.publish_date.year slug=post.slug %}"><h4>{{ post.title }}</h4></a>
 	<p>
-	{{ post.get_preview }}...<a href="{%url 'oblog:post' day=post.publish_date.day month=post.publish_date.month year=post.publish_date.year slug=post.slug %}">(keep reading)</a>
+	{{ post.get_preview }}<br/><a href="{%url 'oblog:post' day=post.publish_date.day month=post.publish_date.month year=post.publish_date.year slug=post.slug %}">seguir leyendo</a>
 	</p>
 	</section>
 	<aside>
-		<h6 class="icon-user"> {{ post.author.get_full_name }}</h6>
-		<hr />
 		<h6 class="icon-calendar"> {{ post.publish_date.date }}</h6>
 		<hr />
-		<h6 class="icon-list"> <a href="{% url 'oblog:filter_posts' filter_name='category' value=post.category.slug %}">{{ post.category }}</a></h6>
+
+		<h6 class="icon-list">
+		{% if filter.0 == 'category' %}
+		Tags:
+		{% for tag in post.tags.all %}
+		<a href="{% url 'oblog:filter_posts' filter_name='tag' value=tag.slug %}">{{ tag.name }}</a>,
+		{% endfor %}
+		{% elif filter.0 == 'tag' %}
+		Categoria:
+		<a href="{% url 'oblog:filter_posts' filter_name='category' value=post.category.slug %}">{{ post.category }}</a>
+		{% else %}
+		Categoria:
+		<a href="{% url 'oblog:filter_posts' filter_name='category' value=post.category.slug %}">{{ post.category }}</a>
+		</h6>
+		<hr/>
+		<h6 class="icon-list">
+		Tags:
+		{% for tag in post.tags.all %}
+		<a href="{% url 'oblog:filter_posts' filter_name='tag' value=tag.slug %}">{{ tag.name }}</a>,
+		{% endfor %}
+		{% endif %}
+		</h6>
+		
 	</aside>
 </article>

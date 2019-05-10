@@ -4,9 +4,7 @@
 
 {# If you want to handle 'header' 'main' 'footer' by yout self use 'container' block. #}
 
-{% block container-header %}
-	<h3></h3>
-{% endblock %}
+{% block container-header %}{% endblock %}
 
 {% block main %}
 	{% if post_list.start_index > 0 %}
@@ -17,6 +15,10 @@
 {% include "blog/fragments/pages_list.html" %}
 
 	{% else %}
+	<article>
+		<section>
 		<h4>No posts yet</h4>
+		</section>
+	</article>
 	{% endif %}
 {% endblock %}
