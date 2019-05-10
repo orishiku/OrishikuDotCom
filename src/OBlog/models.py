@@ -31,8 +31,11 @@ class Post(models.Model):
     
     @property
     def get_preview(self):
-        cleaned_content = strip_tags(self.content)
-        return cleaned_content[0:1000]
+        preview_content = self.content.split('</p>')
+        preview_content = strip_tags(preview_content[0])
+        preview_content = preview_content[0:1000]
+        #cleaned_content = strip_tags(self.content)
+        return preview_content
     
     @property
     def slug(self):
