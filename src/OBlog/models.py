@@ -51,7 +51,7 @@ class Post(models.Model):
             permalink = '/{0}/{1}/{2}/{3}'.format(
                 date.day, date.month, date.year,
                 self.slug)
-            url = "<a href='https://{0}{1}'>{1}</a>".format(
+            url = "<a href='{1}'>{1}</a>".format(
                 current_site,permalink)
             return mark_safe(url)
         else:

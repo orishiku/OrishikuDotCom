@@ -7,14 +7,13 @@ from OBlog.models import Post, Category, Tag
 def post(request, day, month, year, slug):
     post = Post.objects.filter(publish_date__year=year,
                 publish_date__month=month,
-                publish_date__day=day,
-                status='p')
-    
+                publish_date__day=day)
     for p in post:
         if p.slug==slug:
-            return render(request, 'blog/post.html', {
-                'post': p,
-                })
+            if (p.author==request.user and p.status=='d') or p.status=='p':
+                return render(request, 'blog/post.html', {
+                    'post': p,
+                    })
     
     raise Http404("Post does not exist")
 

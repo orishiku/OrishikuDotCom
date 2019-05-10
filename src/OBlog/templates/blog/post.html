@@ -5,7 +5,10 @@
 {# If you want to handle 'header' 'main' 'footer' by yout self use 'container' block. #}
 
 {% block container-header %}
-	<h1>{{ post.title }}</h1><br />
+	<h1>
+	{% if post.status == 'd' %}(BORRADOR){% endif %}
+	{{ post.title }}
+	</h1><br />
 	<h5>{{ post.publish_date }}</h5>	
 {% endblock %}
 
