@@ -12,9 +12,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 
-INSTALLED_APPS += [
-    'OBlog.apps.OblogConfig',
-    ]
+INSTALLED_APPS += []
 
 ROOT_URLCONF = 'OrishikuDotCom.urls.blog'
 
