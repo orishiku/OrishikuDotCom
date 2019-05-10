@@ -2410,6 +2410,9 @@ div.container-main {
           margin-left: 5%;
           margin-right: 5%; } }
 
+section.container-site article hr {
+  margin-bottom: 0; }
+
 section.container-site article section {
   background: white;
   padding: 1.5em;
@@ -2533,7 +2536,8 @@ section.container-site article section {
     font-size: 1.625rem;
     background-color: #009688;
     color: #FFFFFF;
-    padding: 10px; }
+    padding: 10px;
+    margin-left: -10px; }
     section.container-site article section > .title:hover {
       background-color: #00877a;
       text-decoration: none; }
