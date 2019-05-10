@@ -17,10 +17,10 @@ from django.contrib           import admin
 from django.conf.urls.static  import static
 from django.conf              import settings
 from django.urls              import path, include
-from django.contrib.flatpages import views
+from OPages import views
 
 urlpatterns = [
-     path('', views.flatpage, {'url': '/home/'}, name='home'),
+     path('', views.page, {'url': '/home/'}, name='home'),
     path('admin/', admin.site.urls),
     path('', include('OHook.urls')),
 ]

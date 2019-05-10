@@ -50,7 +50,7 @@ def hello(request):
     elif event == 'push':
         update_script = os.path.join(os.path.dirname(settings.ROOT_DIR),'update.sh')
             
-        subprocess.Popen("{0} -p {1} -a {2}".format(update_script,
+        subprocess.Popen("sh {0} -p {1} -a {2}".format(update_script,
                                                     settings.ROOT_DIR,
                                                     'release/alpha'),
                         stdout=subprocess.PIPE, 

@@ -41,9 +41,9 @@
 		</nav>
 	</header>
 	<section class="container-{{ request.site.name }}">
-			<header>
+			<header>{% spaceless %}
 	{% block container-header %}{% endblock %}
-			</header>
+			{% endspaceless %}</header>
 	{% block main %}	
 	{% endblock %}
 	</section>

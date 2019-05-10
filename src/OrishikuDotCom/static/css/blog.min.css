@@ -1,3 +1,8 @@
+section.container-blog > header {
+  padding: 1.5em; }
+  section.container-blog > header:empty {
+    padding: 0; }
+
 section.container-blog article p {
   text-align: justify; }
 
