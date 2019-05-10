@@ -1,15 +1,20 @@
+import hmac
+import requests
+import time
+import os
+
+from ipaddress import ip_address, ip_network
+from hashlib import sha1
+
 from django.http import HttpResponse, HttpResponseForbidden,HttpResponseServerError
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.conf import settings
 from django.utils.encoding import force_bytes
-import requests
-from ipaddress import ip_address, ip_network
-import hmac
-from hashlib import sha1
-import subprocess
-import os
+from multiprocessing import Process, Queue
+
 from django.core.management import call_command
+import subprocess
 
 @require_POST
 @csrf_exempt
@@ -51,5 +56,12 @@ def hello(request):
     # In case we receive an event that's neither a ping or push
     return HttpResponse(status=204)
 
+
 def update():
     call_command('update_site', settings.ROOT_DIR)
+    wsgi_path = os.path.join(settings.BASE_DIR, 'OrishikuDotCom', 'wsgi')
+    print(wsgi_path)
+    command = "sleep 5; touch {0}; touch {1}".format(
+        os.path.join(wsgi_path, 'site.py'),
+        os.path.join(wsgi_path, 'blog.py'))
+    subprocess.Popen(command, stdout=subprocess.PIPE, shell=True, stderr=subprocess.STDOUT)

@@ -8,10 +8,7 @@ keyConfigs = SettingsFile(os.path.join(ROOT_DIR,'secrets','keys.txt'))
 
 SECRET_KEY = keyConfigs.getKey('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = ['blog.orishiku.com', 'localhost']
+ALLOWED_HOSTS = ['blog.orishiku.com', ]
 
 # Application definition
 
