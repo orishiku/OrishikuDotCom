@@ -129,7 +129,7 @@ hr {
   border: none;
   margin: 1em 0;
   padding: 0;
-  border-top: 1px solid #EEEEEE; }
+  border-top: 1px solid #BDBDBD; }
 
 ol,
 ul {
@@ -1649,7 +1649,7 @@ ul[class*="menu-"] {
   display: block; }
   ul[class*="menu-"] li {
     list-style: none;
-    margin: 0; }
+    margin-bottom: 0.5em; }
     ul[class*="menu-"] li.menu-secondary {
       padding: 0; }
       ul[class*="menu-"] li.menu-secondary ul {
@@ -1662,7 +1662,8 @@ ul.menu-horizontal span {
   display: inline-block; }
 
 ul.menu-horizontal li {
-  display: inline-block; }
+  display: inline-block;
+  margin-right: 5px; }
   ul.menu-horizontal li.menu-secondary ul {
     width: 0px; }
   ul.menu-horizontal li.menu-secondary:hover ul {
@@ -1680,7 +1681,8 @@ ul.menu-vertical span {
   display: block; }
 
 ul.menu-vertical li {
-  display: block; }
+  display: block;
+  margin-bottom: 10px; }
   ul.menu-vertical li.menu-secondary:hover {
     height: auto; }
     ul.menu-vertical li.menu-secondary:hover ul li {
@@ -2193,17 +2195,6 @@ div.container-main > header, div.container-main > footer {
 body {
   background: #EEEEEE; }
 
-div.top-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #212121;
-  height: 30px;
-  max-height: 30px;
-  line-height: 30px;
-  z-index: 100; }
-
 div.container-main {
   margin-top: 40px; }
   div.container-main > header {
@@ -2240,7 +2231,177 @@ div.container-main {
           cursor: default; }
   div.container-main > footer {
     background: #673AB7;
-    padding: 10px; }
+    color: #FFFFFF;
+    padding-top: 1em; }
+    div.container-main > footer a {
+      color: #FFFFFF;
+      font-weight: bold;
+      text-decoration: none; }
+    div.container-main > footer > div {
+      border-bottom: 2px solid #EEEEEE;
+      min-height: 100px;
+      padding: 10px; }
+    div.container-main > footer div.left {
+      display: block;
+      float: left;
+      width: 16.66667%;
+      margin-left: 0%;
+      margin-right: 0; }
+      @media (min-width: 1200px) {
+        div.container-main > footer div.left {
+          display: block;
+          float: left;
+          width: 16.66667%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      @media (max-width: 1024px) {
+        div.container-main > footer div.left {
+          display: block;
+          float: left;
+          width: 25%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      @media (max-width: 800px) {
+        div.container-main > footer div.left {
+          display: block;
+          float: left;
+          width: 100%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      @media (max-width: 1024px) {
+        div.container-main > footer div.left {
+          display: block;
+          float: left;
+          width: 25%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      @media (max-width: 800px) {
+        div.container-main > footer div.left {
+          display: block;
+          float: left;
+          width: 100%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      div.container-main > footer div.left a {
+        font-size: 25px;
+        font-size: 1.5625rem; }
+      div.container-main > footer div.left * {
+        text-align: center; }
+    div.container-main > footer div.right {
+      display: block;
+      float: left;
+      width: 16.66667%;
+      margin-left: 0%;
+      margin-right: 0; }
+      @media (min-width: 1200px) {
+        div.container-main > footer div.right {
+          display: block;
+          float: left;
+          width: 16.66667%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      @media (max-width: 1024px) {
+        div.container-main > footer div.right {
+          display: block;
+          float: left;
+          width: 25%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      @media (max-width: 800px) {
+        div.container-main > footer div.right {
+          display: block;
+          float: left;
+          width: 100%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      @media (max-width: 1024px) {
+        div.container-main > footer div.right {
+          display: block;
+          float: left;
+          width: 25%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      @media (max-width: 800px) {
+        div.container-main > footer div.right {
+          display: block;
+          float: left;
+          width: 100%;
+          margin-left: 0%;
+          margin-right: 0; } }
+    div.container-main > footer div.center {
+      display: block;
+      float: left;
+      width: 66.66667%;
+      margin-left: 0%;
+      margin-right: 0; }
+      @media (min-width: 1200px) {
+        div.container-main > footer div.center {
+          display: block;
+          float: left;
+          width: 66.66667%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      @media (max-width: 1024px) {
+        div.container-main > footer div.center {
+          display: block;
+          float: left;
+          width: 100%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      @media (max-width: 800px) {
+        div.container-main > footer div.center {
+          display: block;
+          float: left;
+          width: 100%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      @media (max-width: 1024px) {
+        div.container-main > footer div.center {
+          display: block;
+          float: left;
+          width: 50%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      @media (max-width: 800px) {
+        div.container-main > footer div.center {
+          display: block;
+          float: left;
+          width: 100%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      div.container-main > footer div.center * {
+        text-align: center; }
+    div.container-main > footer div.cc {
+      display: block;
+      float: left;
+      width: 98%;
+      margin-left: 1%;
+      margin-right: 1%;
+      text-align: center;
+      padding: 10px;
+      min-height: 0px;
+      border-bottom: none; }
+      @media (min-width: 1200px) {
+        div.container-main > footer div.cc {
+          display: block;
+          float: left;
+          width: 98%;
+          margin-left: 1%;
+          margin-right: 1%; } }
+      @media (max-width: 1024px) {
+        div.container-main > footer div.cc {
+          display: block;
+          float: left;
+          width: 98%;
+          margin-left: 1%;
+          margin-right: 1%; } }
+      @media (max-width: 800px) {
+        div.container-main > footer div.cc {
+          display: block;
+          float: left;
+          width: 90%;
+          margin-left: 5%;
+          margin-right: 5%; } }
 
 section.container-site article {
   background: white; }
