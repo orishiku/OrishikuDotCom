@@ -2199,13 +2199,19 @@ div.container-main {
   margin-top: 40px; }
   div.container-main > header {
     position: relative;
-    height: 300px;
+    max-height: 300px;
     background: #D1C4E9;
     border-radius: 1em 0 0 0; }
-    div.container-main > header img.main_logo {
+    div.container-main > header div.main_logo {
       background: #009688;
-      padding: 1em;
-      border-radius: 1em 0; }
+      padding: 20px;
+      border-radius: 20px 0;
+      display: inline-block;
+      font-family: "Trebuchet MS", sans-serif;
+      font-size: 40px;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #FFFFFF; }
     div.container-main > header nav {
       position: absolute;
       bottom: 0px;

@@ -59,6 +59,8 @@ def hello(request):
 
 def update():
     call_command('update_site', settings.ROOT_DIR)
+    call_command('collectstatic','--noinput')
+    call_command('collectstatic','--settings=OrishikuDotCom.settings.blog','--noinput')
     wsgi_path = os.path.join(settings.BASE_DIR, 'OrishikuDotCom', 'wsgi')
     print(wsgi_path)
     command = "sleep 5; touch {0}; touch {1}".format(
