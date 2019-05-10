@@ -12,7 +12,7 @@ ENTRY_STATUS_OPTIONS = (
 )
 
 class Post(models.Model):
-    title        = models.CharField(max_length=50)
+    title        = models.CharField(max_length=100)
     content      = models.TextField()
     side_content = models.TextField(null=True)
     #cover         = models.models.ForeignKey('Media', on_delete=models.CASCADE)
