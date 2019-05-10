@@ -1,10 +1,12 @@
 from django.contrib import admin
 from django.contrib.flatpages.models import FlatPage
-from django.contrib.flatpages.admin import FlatPageAdmin
 from django.utils.translation import ugettext_lazy as _
 from OPages.models import Page
 
-class FlatPageCustomAdmin(FlatPageAdmin):
+admin.site.unregister(FlatPage)
+
+@admin.register(Page)
+class PageAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {'fields': ('url', 'title', 'content', 'sites')}),
         (_('Advanced options'), {'classes': ('collapse',),
@@ -13,6 +15,3 @@ class FlatPageCustomAdmin(FlatPageAdmin):
     list_display = ('url', 'title')
     list_filter = ('sites', 'enable_comments', 'registration_required')
     search_fields = ('url', 'title')
-
-admin.site.unregister(FlatPage)
-admin.site.register(FlatPage, FlatPageCustomAdmin)
