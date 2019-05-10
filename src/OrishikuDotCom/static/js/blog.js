@@ -1423,8 +1423,15 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       jQuery(document).ready(function ($) {
         Theme.init();
+        var textareas = document.getElementsByClassName('code');
+        Array.prototype.forEach.call(textareas, function (item) {
+          item.style.height = "";
+          /* Reset the height*/
+
+          item.style.height = Math.min(item.scrollHeight) + "px";
+        });
       });
-    }).call(this, require("rH1JPG"), typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {}, require("buffer").Buffer, arguments[3], arguments[4], arguments[5], arguments[6], "/fake_67d0f0c9.js", "/");
+    }).call(this, require("rH1JPG"), typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {}, require("buffer").Buffer, arguments[3], arguments[4], arguments[5], arguments[6], "/fake_1d65bb1b.js", "/");
   }, {
     "./modules/theme": 6,
     "buffer": 2,

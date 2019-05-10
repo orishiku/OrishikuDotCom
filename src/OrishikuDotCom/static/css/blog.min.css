@@ -44,6 +44,11 @@ section.container-blog article section {
       width: 100%;
       margin-left: 0%;
       margin-right: 0; } }
+  section.container-blog article section .code {
+    width: 100%;
+    resize: none;
+    overflow-x: auto;
+    overflow-y: hidden; }
 
 section.container-blog article aside {
   display: block;

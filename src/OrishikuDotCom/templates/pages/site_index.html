@@ -1,0 +1,35 @@
+{% extends '../base.html' %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+
+{# If you want to handle 'header' 'main' 'footer' by yout self use 'container' block. #}
+{% block header %}{% endblock %}
+{% block main %}
+<article>
+	<section>
+	{{ flatpage.content }}
+	</section>
+</article>
+<article>
+	<h1>Lo más reciente:</h1>
+	<section class="sections_1">
+		<a href="" class="title">Programación</a>
+		<div>
+		</div>
+	</section>
+	<section class="sections_2">
+		<a href="" class="title">Geek</a>
+		<div>
+		</div>
+	</section>
+	<section class="sections_2">
+		<a href="" class="title">Literatura</a>
+		<div>
+		</div>
+	</section>
+</article>
+{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block extra_styles %}{% endblock %}
+{% block extra_scripts %}{% endblock %}
