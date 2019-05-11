@@ -62,7 +62,6 @@ DATABASES = {
         'PORT':     dataConfigs.getKey('PORT'),
     }
 }
-     
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
