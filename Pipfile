@@ -10,7 +10,7 @@ pillow = "*"
 requests = "*"
 ipaddress = "*"
 gitpython = "*"
-django = "*"
+django = "==2.2.1"
 
 [requires]
 python_version = "3.7"
