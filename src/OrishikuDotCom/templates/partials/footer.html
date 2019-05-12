@@ -1,0 +1,25 @@
+<div class="social_links">
+	<ul class="menu-horizontal">
+		<li><a href="https://www.linkedin.com/in/francisco-prieto-garcia" class="icon-linkedin"></a></li>
+		<li><a href="https://github.com/orishiku" class="icon-github"></a></li>
+		<li><a href="https://www.instagram.com/orishiku/" class="icon-instagram"></a></li>
+		<li><a href="https://www.facebook.com/ifr.prieto" class="icon-facebook"></a></li>
+		<li><a href="https://twitter.com/orishiku" class="icon-twitter"></a></li>
+	</ul>
+</div>
+<div class="sitemap">
+	<ul class="menu-horizontal">
+		<li><a href="https://orishiku.com">Inicio</a></li>
+		<li>//</li>
+		<li><a href="https://blog.orishiku.com">Blog</a></li>
+   {% for page in flatpages %}
+   	{% if not page.enable_comments %}
+		<li>//</li>	
+       	<li><a href="p{{ page.url }}">{{ page.title }}</a></li>
+       {% endif%}
+   {% endfor %}				
+	</ul>
+</div>
+<div class="cc">
+	© 2019 orishiku <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+</div>

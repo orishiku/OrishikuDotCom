@@ -1,4 +1,5 @@
-<div class="paginator">
+<article class="paginator">
+	<section class="full">
 {% for p in post_list.paginator.page_range %}
 	{% if p == post_list.number %}
 <span>{{p}}</span>
@@ -8,4 +9,5 @@
 <a href="{% url 'oblog:main_list' page=p %}">{{p}}</a>
 	{% endif %}
 {% endfor%}
-</div>
+	</section>
+</article>

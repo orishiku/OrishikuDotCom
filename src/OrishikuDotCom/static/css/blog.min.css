@@ -1,3 +1,31 @@
+section.container.blog article.paginator {
+  background: #009688;
+  color: #FFFFFF;
+  padding: 0px;
+  border: none; }
+  section.container.blog article.paginator section {
+    text-align: center;
+    padding: 0;
+    border: none; }
+  section.container.blog article.paginator span {
+    display: inline-block;
+    padding: 10px;
+    background: #00877a; }
+  section.container.blog article.paginator a {
+    display: inline-block;
+    padding: 10px;
+    background-color: #009688;
+    color: #FFFFFF; }
+    section.container.blog article.paginator a:hover {
+      background-color: #00877a;
+      text-decoration: none; }
+    section.container.blog article.paginator a:active {
+      background: #00776c; }
+    section.container.blog article.paginator a.disabled {
+      background-color: #00a394;
+      color: #004a43;
+      cursor: default; }
+
 section.container-blog > header {
   padding: 1.5em; }
   section.container-blog > header:empty {
@@ -143,27 +171,5 @@ section.container-blog article aside {
       vertical-align: middle; }
   section.container-blog article aside.extra {
     border-left: 5px #009688 solid; }
-
-section.container-blog div.paginator {
-  background: #009688;
-  color: #FFFFFF; }
-  section.container-blog div.paginator span {
-    display: inline-block;
-    padding: 10px;
-    background: #00877a; }
-  section.container-blog div.paginator a {
-    display: inline-block;
-    padding: 10px;
-    background-color: #009688;
-    color: #FFFFFF; }
-    section.container-blog div.paginator a:hover {
-      background-color: #00877a;
-      text-decoration: none; }
-    section.container-blog div.paginator a:active {
-      background: #00776c; }
-    section.container-blog div.paginator a.disabled {
-      background-color: #00a394;
-      color: #004a43;
-      cursor: default; }
 
 /*# sourceMappingURL=blog.min.css.map */

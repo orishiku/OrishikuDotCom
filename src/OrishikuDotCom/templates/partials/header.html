@@ -1,0 +1,14 @@
+{% load flatpages %}
+{% get_flatpages as flatpages %}
+<div class="main_logo">
+Orishiku.com
+</div>
+<nav>
+	<ul class="menu-horizontal">
+		<li><a href="https://orishiku.com">Inicio</a></li>
+		<li><a href="https://blog.orishiku.com">Blog</a></li>
+		{% for page in flatpages %}{% if not page.enable_comments %}
+       	<li><a href="/p{{ page.url }}">{{ page.title }}</a></li>
+		{% endif%}{% endfor %}				
+	</ul>
+</nav>

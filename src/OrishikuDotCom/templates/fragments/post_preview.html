@@ -1,12 +1,13 @@
 <section>
-<h4><a href="https://blog.orishiku.com/{{post.publish_date.day}}/{{post.publish_date.month}}/{{post.publish_date.year}}/{{post.slug}}">{{ post.title }}</a> | {{ post.publish_date.date }} </h4>
-<br/>
-<h6>Tags:
-{% for tag in post.tags.all %}
-<a href="https://blog.orishiku.com/tag/{{tag.slug}}">{{ tag.name }}</a>,
-{% endfor %}
-</h6>
-<p>
-{{ post.get_preview }}(...)
-</p>
+	<h4><a href="https://blog.orishiku.com/{{post.publish_date.day}}/{{post.publish_date.month}}/{{post.publish_date.year}}/{{post.slug}}">{{ post.title }}</a></h4>
+	<br/>
+	<p>{{ post.get_preview }}(...)</p>
 </section>
+<aside>
+	<h4>{{ post.publish_date.date }}</h4>
+	<h6>Tags:
+	{% for tag in post.tags.all %}
+	<a href="https://blog.orishiku.com/tag/{{tag.slug}}">{{ tag.name }}</a>,
+	{% endfor %}
+	</h6>
+</aside>
