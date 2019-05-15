@@ -28,39 +28,28 @@
 	{% endif %}
 </article>
 <article>
+	{% posts_in_category 'geek' 3 as posts %}
+	{% if posts.count > 0%}
 	<section class="half">
 		<header>
 			<a href="" class="title">Geek</a>
 		</header>
-	{% posts_in_category 'geek' 3 as posts %}
-	{% if posts.count > 0%}
 		{% for post in posts%}
 	{% include '../fragments/post_minimal.html' %}
 		{% endfor %}
-		{% for post in posts%}
-	{% include '../fragments/post_minimal.html' %}
-		{% endfor %}	
-	{% else %}
-		<section class="full">
-			<h4>Sin publicaciones...</h4>
-		</section>
-	{% endif %}
 	</section>
+	{% endif %}
+	{% posts_in_category 'literatura' 3 as posts %}
+	{% if posts.count > 0%}
 	<section class="half">
 		<header>
 			<a href="" class="title">Literatura</a>
 		</header>
-	{% posts_in_category 'literatura' 3 as posts %}
-	{% if posts.count > 0%}
 		{% for post in posts%}
 	{% include '../fragments/post_minimal.html' %}
 		{% endfor %}
-	{% else %}
-		<section class="full">
-			<h4>Sin publicaciones...</h4>
-		</section>
-	{% endif %}
 	</section>
+	{% endif %}
 </article>
 {% endblock %}
 

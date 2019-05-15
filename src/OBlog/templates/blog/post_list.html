@@ -4,15 +4,18 @@
 
 {# If you want to handle 'header' 'main' 'footer' by yout self use 'container' block. #}
 
-{% block container-header %}
-	{% if filter.0 == 'category' %}
-	<h4>Categoria: {{ filter.1.name }}</h4>
-	{% elif filter.0 == 'tag' %}
-	<h4>Tag: {{ filter.1.name }}</h4>
-	{% endif %}
-{% endblock %}
-
 {% block main %}
+
+<article class="title">
+	<h1>{{ filter.1.name }}</h1>
+	{% if filter.0 == 'category' %}
+	<h4>Categoria</h4>
+	{% elif filter.0 == 'tag' %}
+	<h4>Etiqueta</h4>
+	{% endif %}
+	<h1>{{ filter_name }}</h1>
+	<h4>{{ post.publish_date.date }}</h4>
+</article>
 	{% if post_list.start_index > 0 %}
 		{% for post in post_list%}
 {% include "blog/fragments/post_preview.html" %}

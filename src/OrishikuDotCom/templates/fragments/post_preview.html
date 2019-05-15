@@ -4,7 +4,7 @@
 	<p>{{ post.get_preview }}(...)</p>
 </section>
 <aside>
-	<h4>{{ post.publish_date.date }}</h4>
+	<h4>{{ post.publish_date.date }}</h4><br/>
 	<h6>Tags:
 	{% for tag in post.tags.all %}
 	<a href="https://blog.orishiku.com/tag/{{tag.slug}}">{{ tag.name }}</a>,
