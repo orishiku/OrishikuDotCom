@@ -1,14 +1,22 @@
 {% load flatpages %}
 {% get_flatpages as flatpages %}
 <div class="main_logo">
-Orishiku.com
+<a href="https://github.com/orishiku/OrishikuDotCom">(&alpha;)</a>Orishiku.com
 </div>
 <nav>
 	<ul class="menu-horizontal">
-		<li><a href="https://orishiku.com">Inicio</a></li>
+		<li><a href="https://orishiku.com" class="icon-home"></a></li>
 		<li><a href="https://blog.orishiku.com">Blog</a></li>
-		{% for page in flatpages %}{% if not page.enable_comments %}
+		<li class="separator"></li>
+		{% for page in flatpages %}{% if page.in_main_menu %}
        	<li><a href="/p{{ page.url }}">{{ page.title }}</a></li>
-		{% endif%}{% endfor %}				
+		{% endif%}{% endfor %}
+		<!-- 
+       	{% if request.site.name == 'blog' %}
+		<li class="separator"></li>
+		<li><a href="">Categorias</a></li>
+		<li><a href="">Etiquetas</a></li>
+       	{% endif %}
+       	 -->
 	</ul>
 </nav>
