@@ -1,5 +1,9 @@
 {% load static %}
-<article>
+<article class="title">
+	<h1>{{ post.title }}</h1>
+	<h4>{{ post.publish_date.date }}</h4>
+</article>
+<article class="post">
 	<section>
 	{{ post.content | safe }}
 	</section>
@@ -9,7 +13,7 @@
 		{% else %}
 		<img src="{% static 'img/avatar-default.png' %}" alt="author_avatar"/>
 		{% endif %}
-		<div>By {{ post.author }}</div>
+		<div>By {{ post.author.get_full_name }}</div>
 	</aside> 
 	<aside>
 		<b>Category:</b><a href="{%url 'oblog:filter_posts' filter_name='category' value=post.category.slug %}" class="category">{{ post.category }}</a>

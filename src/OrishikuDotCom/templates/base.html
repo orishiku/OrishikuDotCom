@@ -19,73 +19,18 @@
 </head>
 
 <body>
-<div class="container-main">
+<div class="main">
 {% block container %}
 	<header>
-		<div class="main_logo">
-		Orishiku.com
-		</div>
-		{% block header %}{% endblock %}
-		{% load flatpages %}
-		{% get_flatpages as flatpages %}
-		<nav>
-			<ul class="menu-horizontal">
-				<li><a href="https://orishiku.com">Inicio</a></li>
-				<li><a href="https://blog.orishiku.com">Blog</a></li>
-	    {% for page in flatpages %}
-	    	{% if not page.enable_comments %}
-	        	<li><a href="/p{{ page.url }}">{{ page.title }}</a></li>
-	        {% endif%}
-	    {% endfor %}				
-			</ul>
-		</nav>
+	{% block header %}{% endblock %}
+	{% include 'partials/header.html'%}
 	</header>
-	<section class="container-{{ request.site.name }}">
-			<header>{% spaceless %}
-	{% block container-header %}{% endblock %}
-			{% endspaceless %}</header>
-	{% block main %}	
-	{% endblock %}
+	<section class="container {{ request.site.name }}"> 
+	{% block main %}{% endblock %}
 	</section>
 	<footer>
-	<div class="left">
-		<ul class="menu-horizontal">
-			<li><a href="https://www.linkedin.com/in/francisco-prieto-garcia" class="icon-linkedin"></a></li>
-			<li><a href="https://github.com/orishiku" class="icon-github"></a></li>
-			<li><a href="https://www.instagram.com/orishiku/" class="icon-instagram"></a></li>
-			<li><a href="https://www.facebook.com/ifr.prieto" class="icon-facebook"></a></li>
-			<li><a href="https://twitter.com/orishiku" class="icon-twitter"></a></li>
-		</ul>
-	</div>
-	<div class="center">
 	{% block footer %}{% endblock %}
-		<ul class="menu-horizontal">
-			<li><a href="https://orishiku.com">Inicio</a></li>
-			<li>//</li>
-			<li><a href="https://blog.orishiku.com">Blog</a></li>
-    {% for page in flatpages %}
-    	{% if not page.enable_comments %}
-			<li>//</li>	
-        	<li><a href="p{{ page.url }}">{{ page.title }}</a></li>
-        {% endif%}
-    {% endfor %}				
-		</ul>
-	</div>
-	<div class="right">
-		<ul class="menu-vertical">
-	{% if request.user.is_authenticated %}
-			<li><a href="" class="icon-user">{{ request.user.get_short_name }}</a></li>
-		{% if request.user.is_authenticated %}
-			<li><a href="{% url 'admin:index'%}" class="icon-tools">Administración</a></li>
-		{% endif %}
-	{% else %}
-			<li><a href="{% url 'admin:login'%}" class="icon-login">Ingresar</a></li>
-	{% endif %}
-		</ul>
-	</div>
-	<div class="cc">
-		© 2019 orishiku <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
-	</div>
+	{% include 'partials/footer.html'%}
 	</footer>
 {% endblock %}
 </div>

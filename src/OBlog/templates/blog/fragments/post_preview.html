@@ -2,7 +2,7 @@
 	<section>
 	<a href="{%url 'oblog:post' day=post.publish_date.day month=post.publish_date.month year=post.publish_date.year slug=post.slug %}"><h4>{{ post.title }}</h4></a>
 	<p>
-	{{ post.get_preview }}<br/><a href="{%url 'oblog:post' day=post.publish_date.day month=post.publish_date.month year=post.publish_date.year slug=post.slug %}">seguir leyendo</a>
+	{{ post.get_preview }} (...)
 	</p>
 	</section>
 	<aside>
