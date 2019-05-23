@@ -1358,22 +1358,22 @@ span.icon-twitter:before {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-[class*="container"] {
+.main {
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto; }
-  [class*="container"]:after {
+  .main:after {
     content: "";
     display: table;
     clear: both; }
   @media (min-width: 1200px) {
-    [class*="container"] {
-      max-width: 1500px; } }
+    .main {
+      max-width: 1200px; } }
   @media (max-width: 1024px) {
-    [class*="container"] {
+    .main {
       max-width: 100%; } }
   @media (max-width: 800px) {
-    [class*="container"] {
+    .main {
       max-width: 100%; } }
 
 .error {
@@ -1645,11 +1645,14 @@ ul[class*="menu-"] {
   padding: 0;
   text-align: left;
   font-weight: bold;
-  line-height: 1em;
   display: block; }
   ul[class*="menu-"] li {
     list-style: none;
     margin-bottom: 0.5em; }
+    ul[class*="menu-"] li.separator {
+      width: 3px;
+      background: #EEEEEE;
+      margin-top: -13px; }
     ul[class*="menu-"] li.menu-secondary {
       padding: 0; }
       ul[class*="menu-"] li.menu-secondary ul {
@@ -1662,8 +1665,9 @@ ul.menu-horizontal span {
   display: inline-block; }
 
 ul.menu-horizontal li {
+  height: inherit;
   display: inline-block;
-  margin-right: 5px; }
+  margin: 0px; }
   ul.menu-horizontal li.menu-secondary ul {
     width: 0px; }
   ul.menu-horizontal li.menu-secondary:hover ul {
@@ -2195,456 +2199,458 @@ div.container-main > header, div.container-main > footer, div.container-main > s
 body {
   background: #EEEEEE; }
 
-div.container-main {
-  margin-top: 40px; }
-  div.container-main > header {
+div.main {
+  margin-top: 20px; }
+  div.main > header {
+    display: block;
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0;
+    position: relative;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    position: relative;
     height: 250px;
     max-height: 300px;
     background: #D1C4E9;
     border-radius: 1em 0 0 0;
     background-image: url("../img/banner.jpg");
     background-repeat: no-repeat;
-    background-position: 50% 0%;
+    background-position: 50% 50%;
     background-size: cover;
     background-attachment: fixed;
     overflow: hidden; }
-    div.container-main > header div.main_logo {
-      text-shadow: #212121 0px 0px 15px, #212121 0px 0px 5px;
-      padding: 20px;
-      border-radius: 20px 0;
-      display: inline-block;
+    @media (min-width: 1200px) {
+      div.main > header {
+        display: block;
+        float: left;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0; } }
+    @media (max-width: 1024px) {
+      div.main > header {
+        display: block;
+        float: left;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0; } }
+    @media (max-width: 800px) {
+      div.main > header {
+        display: block;
+        float: left;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0; } }
+    div.main > header div.main_logo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
       font-family: "Trebuchet MS", sans-serif;
       font-size: 40px;
       font-size: 2.5rem;
       font-weight: bold;
-      color: #FFFFFF; }
-    div.container-main > header nav {
+      color: #FFFFFF;
+      text-shadow: #673AB7 0px 0px 15px, #212121 0px 0px 5px; }
+      div.main > header div.main_logo a {
+        color: #FFFFFF;
+        text-decoration: none; }
+    div.main > header nav {
+      display: block;
+      float: left;
+      width: 100%;
+      margin-left: 0%;
+      margin-right: 0;
       position: absolute;
-      bottom: -20px;
+      bottom: 0px;
       left: 0;
       right: 0px;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 1em; }
-      div.container-main > header nav a {
+      background: #673AB7; }
+      @media (min-width: 1200px) {
+        div.main > header nav {
+          display: block;
+          float: left;
+          width: 100%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      @media (max-width: 1024px) {
+        div.main > header nav {
+          display: block;
+          float: left;
+          width: 100%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      @media (max-width: 800px) {
+        div.main > header nav {
+          display: block;
+          float: left;
+          width: 100%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      div.main > header nav ul {
+        height: 50px;
+        padding-top: 13px; }
+        div.main > header nav ul li.separator {
+          background: #512DA8; }
+      div.main > header nav a {
+        background-color: #673AB7;
+        color: #FFFFFF;
         font-family: "Trebuchet MS", sans-serif;
         font-size: 26px;
         font-size: 1.625rem;
-        padding: 10px;
-        color: #FFFFFF;
-        border-radius: 5px 5px 0 0; }
-      div.container-main > header nav li {
-        margin-bottom: 20px; }
-  div.container-main > footer {
+        padding: 10px 15px;
+        color: #FFFFFF; }
+        div.main > header nav a:hover {
+          background-color: #6036ab;
+          text-decoration: none; }
+        div.main > header nav a:active {
+          background: #5a33a0; }
+        div.main > header nav a.disabled {
+          background-color: #6c3dc1;
+          color: #46287d;
+          cursor: default; }
+  div.main > .container {
+    display: block;
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0;
+    margin-top: 10px; }
+    @media (min-width: 1200px) {
+      div.main > .container {
+        display: block;
+        float: left;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0; } }
+    @media (max-width: 1024px) {
+      div.main > .container {
+        display: block;
+        float: left;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0; } }
+    @media (max-width: 800px) {
+      div.main > .container {
+        display: block;
+        float: left;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0; } }
+    div.main > .container.site > article > header {
+      padding: 20px; }
+    div.main > .container.site > article aside {
+      text-align: center; }
+    div.main > .container > article {
+      display: block;
+      float: left;
+      width: 100%;
+      margin-left: 0%;
+      margin-right: 0;
+      background: #FFF;
+      margin-bottom: 10px;
+      border-width: 0px 0px 3px 0px;
+      border-color: #009688;
+      border-style: solid; }
+      @media (min-width: 1200px) {
+        div.main > .container > article {
+          display: block;
+          float: left;
+          width: 100%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      @media (max-width: 1024px) {
+        div.main > .container > article {
+          display: block;
+          float: left;
+          width: 100%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      @media (max-width: 800px) {
+        div.main > .container > article {
+          display: block;
+          float: left;
+          width: 100%;
+          margin-left: 0%;
+          margin-right: 0; } }
+      div.main > .container > article > a {
+        background-color: #FFF;
+        color: #212121;
+        padding: 10px; }
+        div.main > .container > article > a:hover {
+          background-color: #f7f7f7;
+          text-decoration: none; }
+        div.main > .container > article > a:active {
+          background: #f0f0f0; }
+        div.main > .container > article > a.disabled {
+          background-color: white;
+          color: #d9d9d9;
+          cursor: default; }
+      div.main > .container > article.title {
+        border-width: 0px 0px 0px 3px;
+        bordeR-color: #673AB7;
+        font-family: "Trebuchet MS", sans-serif;
+        font-size: 32px;
+        font-size: 2rem;
+        padding: 20px; }
+      div.main > .container > article aside, div.main > .container > article section {
+        padding: 20px;
+        border-top: 2px solid #EEEEEE; }
+        div.main > .container > article aside p, div.main > .container > article section p {
+          text-align: justify; }
+      div.main > .container > article header {
+        display: block;
+        float: left;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0;
+        font-family: "Trebuchet MS", sans-serif;
+        font-size: 26px;
+        font-size: 1.625rem;
+        height: 50px;
+        padding: 13px 10px 10px 0px; }
+        @media (min-width: 1200px) {
+          div.main > .container > article header {
+            display: block;
+            float: left;
+            width: 100%;
+            margin-left: 0%;
+            margin-right: 0; } }
+        @media (max-width: 1024px) {
+          div.main > .container > article header {
+            display: block;
+            float: left;
+            width: 100%;
+            margin-left: 0%;
+            margin-right: 0; } }
+        @media (max-width: 800px) {
+          div.main > .container > article header {
+            display: block;
+            float: left;
+            width: 100%;
+            margin-left: 0%;
+            margin-right: 0; } }
+        div.main > .container > article header a {
+          background-color: #FFF;
+          color: #009688;
+          padding: 10px 10px 10px 0px; }
+          div.main > .container > article header a:hover {
+            background-color: #f7f7f7;
+            text-decoration: none; }
+          div.main > .container > article header a:active {
+            background: #f0f0f0; }
+          div.main > .container > article header a.disabled {
+            background-color: white;
+            color: #d9d9d9;
+            cursor: default; }
+      div.main > .container > article aside {
+        display: block;
+        float: left;
+        width: 33.33333%;
+        margin-left: 0%;
+        margin-right: 0; }
+        @media (min-width: 1200px) {
+          div.main > .container > article aside {
+            display: block;
+            float: left;
+            width: 33.33333%;
+            margin-left: 0%;
+            margin-right: 0; } }
+        @media (max-width: 1024px) {
+          div.main > .container > article aside {
+            display: block;
+            float: left;
+            width: 50%;
+            margin-left: 0%;
+            margin-right: 0; } }
+        @media (max-width: 800px) {
+          div.main > .container > article aside {
+            display: block;
+            float: left;
+            width: 100%;
+            margin-left: 0%;
+            margin-right: 0; } }
+        div.main > .container > article aside img {
+          display: block;
+          float: left;
+          width: 100%;
+          margin-left: 0%;
+          margin-right: 0; }
+          @media (min-width: 1200px) {
+            div.main > .container > article aside img {
+              display: block;
+              float: left;
+              width: 100%;
+              margin-left: 0%;
+              margin-right: 0; } }
+          @media (max-width: 1024px) {
+            div.main > .container > article aside img {
+              display: block;
+              float: left;
+              width: 100%;
+              margin-left: 0%;
+              margin-right: 0; } }
+          @media (max-width: 800px) {
+            div.main > .container > article aside img {
+              display: block;
+              float: left;
+              width: 100%;
+              margin-left: 0%;
+              margin-right: 0; } }
+      div.main > .container > article .half {
+        display: block;
+        float: left;
+        width: 50%;
+        margin-left: 0%;
+        margin-right: 0;
+        padding-top: 0px; }
+        @media (min-width: 1200px) {
+          div.main > .container > article .half {
+            display: block;
+            float: left;
+            width: 50%;
+            margin-left: 0%;
+            margin-right: 0; } }
+        @media (max-width: 1024px) {
+          div.main > .container > article .half {
+            display: block;
+            float: left;
+            width: 75%;
+            margin-left: 0%;
+            margin-right: 0; } }
+        @media (max-width: 800px) {
+          div.main > .container > article .half {
+            display: block;
+            float: left;
+            width: 100%;
+            margin-left: 0%;
+            margin-right: 0; } }
+      div.main > .container > article section {
+        display: block;
+        float: left;
+        width: 66.66667%;
+        margin-left: 0%;
+        margin-right: 0; }
+        @media (min-width: 1200px) {
+          div.main > .container > article section {
+            display: block;
+            float: left;
+            width: 66.66667%;
+            margin-left: 0%;
+            margin-right: 0; } }
+        @media (max-width: 1024px) {
+          div.main > .container > article section {
+            display: block;
+            float: left;
+            width: 100%;
+            margin-left: 0%;
+            margin-right: 0; } }
+        @media (max-width: 800px) {
+          div.main > .container > article section {
+            display: block;
+            float: left;
+            width: 100%;
+            margin-left: 0%;
+            margin-right: 0; } }
+        div.main > .container > article section.full {
+          display: block;
+          float: left;
+          width: 100%;
+          margin-left: 0%;
+          margin-right: 0; }
+          @media (min-width: 1200px) {
+            div.main > .container > article section.full {
+              display: block;
+              float: left;
+              width: 100%;
+              margin-left: 0%;
+              margin-right: 0; } }
+          @media (max-width: 1024px) {
+            div.main > .container > article section.full {
+              display: block;
+              float: left;
+              width: 100%;
+              margin-left: 0%;
+              margin-right: 0; } }
+          @media (max-width: 800px) {
+            div.main > .container > article section.full {
+              display: block;
+              float: left;
+              width: 100%;
+              margin-left: 0%;
+              margin-right: 0; } }
+  div.main > footer {
+    display: block;
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0;
     background: #673AB7;
-    color: #FFFFFF;
-    padding-top: 1em; }
-    div.container-main > footer a {
+    color: #FFFFFF; }
+    @media (min-width: 1200px) {
+      div.main > footer {
+        display: block;
+        float: left;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0; } }
+    @media (max-width: 1024px) {
+      div.main > footer {
+        display: block;
+        float: left;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0; } }
+    @media (max-width: 800px) {
+      div.main > footer {
+        display: block;
+        float: left;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0; } }
+    div.main > footer a {
       color: #FFFFFF;
       font-weight: bold;
       text-decoration: none; }
-    div.container-main > footer > div {
-      border-bottom: 2px solid #EEEEEE;
-      min-height: 100px;
-      padding: 10px; }
-    div.container-main > footer div.left {
+    div.main > footer > div {
       display: block;
       float: left;
-      width: 16.66667%;
+      width: 33.33333%;
       margin-left: 0%;
       margin-right: 0; }
       @media (min-width: 1200px) {
-        div.container-main > footer div.left {
+        div.main > footer > div {
           display: block;
           float: left;
-          width: 16.66667%;
+          width: 33.33333%;
           margin-left: 0%;
           margin-right: 0; } }
       @media (max-width: 1024px) {
-        div.container-main > footer div.left {
-          display: block;
-          float: left;
-          width: 25%;
-          margin-left: 0%;
-          margin-right: 0; } }
-      @media (max-width: 800px) {
-        div.container-main > footer div.left {
-          display: block;
-          float: left;
-          width: 100%;
-          margin-left: 0%;
-          margin-right: 0; } }
-      @media (max-width: 1024px) {
-        div.container-main > footer div.left {
-          display: block;
-          float: left;
-          width: 25%;
-          margin-left: 0%;
-          margin-right: 0; } }
-      @media (max-width: 800px) {
-        div.container-main > footer div.left {
-          display: block;
-          float: left;
-          width: 100%;
-          margin-left: 0%;
-          margin-right: 0; } }
-      div.container-main > footer div.left a {
-        font-size: 25px;
-        font-size: 1.5625rem; }
-      div.container-main > footer div.left * {
-        text-align: center; }
-    div.container-main > footer div.right {
-      display: block;
-      float: left;
-      width: 16.66667%;
-      margin-left: 0%;
-      margin-right: 0; }
-      @media (min-width: 1200px) {
-        div.container-main > footer div.right {
-          display: block;
-          float: left;
-          width: 16.66667%;
-          margin-left: 0%;
-          margin-right: 0; } }
-      @media (max-width: 1024px) {
-        div.container-main > footer div.right {
-          display: block;
-          float: left;
-          width: 25%;
-          margin-left: 0%;
-          margin-right: 0; } }
-      @media (max-width: 800px) {
-        div.container-main > footer div.right {
-          display: block;
-          float: left;
-          width: 100%;
-          margin-left: 0%;
-          margin-right: 0; } }
-      @media (max-width: 1024px) {
-        div.container-main > footer div.right {
-          display: block;
-          float: left;
-          width: 25%;
-          margin-left: 0%;
-          margin-right: 0; } }
-      @media (max-width: 800px) {
-        div.container-main > footer div.right {
-          display: block;
-          float: left;
-          width: 100%;
-          margin-left: 0%;
-          margin-right: 0; } }
-    div.container-main > footer div.center {
-      display: block;
-      float: left;
-      width: 66.66667%;
-      margin-left: 0%;
-      margin-right: 0; }
-      @media (min-width: 1200px) {
-        div.container-main > footer div.center {
-          display: block;
-          float: left;
-          width: 66.66667%;
-          margin-left: 0%;
-          margin-right: 0; } }
-      @media (max-width: 1024px) {
-        div.container-main > footer div.center {
-          display: block;
-          float: left;
-          width: 100%;
-          margin-left: 0%;
-          margin-right: 0; } }
-      @media (max-width: 800px) {
-        div.container-main > footer div.center {
-          display: block;
-          float: left;
-          width: 100%;
-          margin-left: 0%;
-          margin-right: 0; } }
-      @media (max-width: 1024px) {
-        div.container-main > footer div.center {
+        div.main > footer > div {
           display: block;
           float: left;
           width: 50%;
           margin-left: 0%;
           margin-right: 0; } }
       @media (max-width: 800px) {
-        div.container-main > footer div.center {
+        div.main > footer > div {
           display: block;
           float: left;
           width: 100%;
           margin-left: 0%;
           margin-right: 0; } }
-      div.container-main > footer div.center * {
-        text-align: center; }
-    div.container-main > footer div.cc {
-      display: block;
-      float: left;
-      width: 98%;
-      margin-left: 1%;
-      margin-right: 1%;
-      text-align: center;
-      padding: 10px;
-      min-height: 0px;
-      border-bottom: none; }
-      @media (min-width: 1200px) {
-        div.container-main > footer div.cc {
-          display: block;
-          float: left;
-          width: 98%;
-          margin-left: 1%;
-          margin-right: 1%; } }
-      @media (max-width: 1024px) {
-        div.container-main > footer div.cc {
-          display: block;
-          float: left;
-          width: 98%;
-          margin-left: 1%;
-          margin-right: 1%; } }
-      @media (max-width: 800px) {
-        div.container-main > footer div.cc {
-          display: block;
-          float: left;
-          width: 90%;
-          margin-left: 5%;
-          margin-right: 5%; } }
-
-section.container-site article hr {
-  margin-bottom: 0; }
-
-section.container-site article section {
-  background: white;
-  padding: 1.5em;
-  text-align: justify; }
-  section.container-site article section[class*="sections_"] {
-    margin-top: 20px;
-    padding: 0; }
-    section.container-site article section[class*="sections_"] > div {
-      padding: 25px 10px 10px 10px; }
-  section.container-site article section.sections_1 {
-    display: block;
-    float: left;
-    width: 98%;
-    margin-left: 1%;
-    margin-right: 1%; }
-    @media (min-width: 1200px) {
-      section.container-site article section.sections_1 {
-        display: block;
-        float: left;
-        width: 98%;
-        margin-left: 1%;
-        margin-right: 1%; } }
-    @media (max-width: 1024px) {
-      section.container-site article section.sections_1 {
-        display: block;
-        float: left;
-        width: 98%;
-        margin-left: 1%;
-        margin-right: 1%; } }
-    @media (max-width: 800px) {
-      section.container-site article section.sections_1 {
-        display: block;
-        float: left;
-        width: 90%;
-        margin-left: 5%;
-        margin-right: 5%; } }
-  section.container-site article section.sections_2 {
-    display: block;
-    float: left;
-    width: 48%;
-    margin-left: 1%;
-    margin-right: 1%; }
-    @media (min-width: 1200px) {
-      section.container-site article section.sections_2 {
-        display: block;
-        float: left;
-        width: 48%;
-        margin-left: 1%;
-        margin-right: 1%; } }
-    @media (max-width: 1024px) {
-      section.container-site article section.sections_2 {
-        display: block;
-        float: left;
-        width: 73%;
-        margin-left: 1%;
-        margin-right: 1%; } }
-    @media (max-width: 800px) {
-      section.container-site article section.sections_2 {
-        display: block;
-        float: left;
-        width: 90%;
-        margin-left: 5%;
-        margin-right: 5%; } }
-  section.container-site article section.sections_3 {
-    display: block;
-    float: left;
-    width: 31.33333%;
-    margin-left: 1%;
-    margin-right: 1%; }
-    @media (min-width: 1200px) {
-      section.container-site article section.sections_3 {
-        display: block;
-        float: left;
-        width: 31.33333%;
-        margin-left: 1%;
-        margin-right: 1%; } }
-    @media (max-width: 1024px) {
-      section.container-site article section.sections_3 {
-        display: block;
-        float: left;
-        width: 48%;
-        margin-left: 1%;
-        margin-right: 1%; } }
-    @media (max-width: 800px) {
-      section.container-site article section.sections_3 {
-        display: block;
-        float: left;
-        width: 90%;
-        margin-left: 5%;
-        margin-right: 5%; } }
-  section.container-site article section.sections_4 {
-    display: block;
-    float: left;
-    width: 23%;
-    margin-left: 1%;
-    margin-right: 1%; }
-    @media (min-width: 1200px) {
-      section.container-site article section.sections_4 {
-        display: block;
-        float: left;
-        width: 23%;
-        margin-left: 1%;
-        margin-right: 1%; } }
-    @media (max-width: 1024px) {
-      section.container-site article section.sections_4 {
-        display: block;
-        float: left;
-        width: 35.5%;
-        margin-left: 1%;
-        margin-right: 1%; } }
-    @media (max-width: 800px) {
-      section.container-site article section.sections_4 {
-        display: block;
-        float: left;
-        width: 90%;
-        margin-left: 5%;
-        margin-right: 5%; } }
-  section.container-site article section > .title {
-    font-family: "Trebuchet MS", sans-serif;
-    font-size: 26px;
-    font-size: 1.625rem;
-    background-color: #009688;
-    color: #FFFFFF;
-    padding: 10px;
-    margin-left: -10px; }
-    section.container-site article section > .title:hover {
-      background-color: #00877a;
-      text-decoration: none; }
-    section.container-site article section > .title:active {
-      background: #00776c; }
-    section.container-site article section > .title.disabled {
-      background-color: #00a394;
-      color: #004a43;
-      cursor: default; }
-  section.container-site article section > div {
-    display: table-cell; }
-    section.container-site article section > div.side {
-      width: 200px; }
-  section.container-site article section img.circle {
-    width: 200px;
-    margin: 1em;
-    border-radius: 100px; }
-
-section[class*="container-"] > * {
-  display: block;
-  float: left;
-  width: 100%;
-  margin-left: 0%;
-  margin-right: 0;
-  margin-bottom: 1em; }
-  @media (min-width: 1200px) {
-    section[class*="container-"] > * {
-      display: block;
-      float: left;
-      width: 100%;
-      margin-left: 0%;
-      margin-right: 0; } }
-  @media (max-width: 1024px) {
-    section[class*="container-"] > * {
-      display: block;
-      float: left;
-      width: 100%;
-      margin-left: 0%;
-      margin-right: 0; } }
-  @media (max-width: 800px) {
-    section[class*="container-"] > * {
-      display: block;
-      float: left;
-      width: 100%;
-      margin-left: 0%;
-      margin-right: 0; } }
-  @media (max-width: 1024px) {
-    section[class*="container-"] > * {
-      display: block;
-      float: left;
-      width: 100%;
-      margin-left: 0%;
-      margin-right: 0; } }
-  @media (max-width: 800px) {
-    section[class*="container-"] > * {
-      display: block;
-      float: left;
-      width: 100%;
-      margin-left: 0%;
-      margin-right: 0; } }
-
-section[class*="container-"] > header {
-  display: block;
-  float: left;
-  width: 100%;
-  margin-left: 0%;
-  margin-right: 0;
-  background: #009688;
-  color: #FFFFFF;
-  margin-bottom: 10px; }
-  @media (min-width: 1200px) {
-    section[class*="container-"] > header {
-      display: block;
-      float: left;
-      width: 100%;
-      margin-left: 0%;
-      margin-right: 0; } }
-  @media (max-width: 1024px) {
-    section[class*="container-"] > header {
-      display: block;
-      float: left;
-      width: 100%;
-      margin-left: 0%;
-      margin-right: 0; } }
-  @media (max-width: 800px) {
-    section[class*="container-"] > header {
-      display: block;
-      float: left;
-      width: 100%;
-      margin-left: 0%;
-      margin-right: 0; } }
-  @media (max-width: 1024px) {
-    section[class*="container-"] > header {
-      display: block;
-      float: left;
-      width: 100%;
-      margin-left: 0%;
-      margin-right: 0; } }
-  @media (max-width: 800px) {
-    section[class*="container-"] > header {
-      display: block;
-      float: left;
-      width: 100%;
-      margin-left: 0%;
-      margin-right: 0; } }
+      div.main > footer > div.social_links {
+        padding: 7px 10px 0px 10px; }
+        div.main > footer > div.social_links a {
+          font-size: 25px;
+          font-size: 1.5625rem; }
+      div.main > footer > div.cc {
+        text-align: right;
+        padding: 15px 10px 9px 10px; }
+      div.main > footer > div.sitemap {
+        padding: 15px 10px 1px 10px; }
+        div.main > footer > div.sitemap ul {
+          text-align: center; }
 
 /*# sourceMappingURL=base.min.css.map */
