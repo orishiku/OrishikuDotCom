@@ -3,69 +3,55 @@
 {% block title %}{{ flatpage.title }}{% endblock %}
 
 {# If you want to handle 'header' 'main' 'footer' by yout self use 'container' block. #}
-{% block header %}{% endblock %}
+
 {% block main %}
 <article>
-	<section>
 	{{ flatpage.content }}
-	</section>
 </article>
 {% load blog_tags %}
+<article class="title">
+	Lo más reciente:
+</article>
 <article>
-	<h1>Lo más reciente:</h1>
-	<section class="sections_1">
+	<header>
 		<a href="" class="title">Programación</a>
-		{% posts_in_category 'programacion' 3 as posts %}
-		{% if posts.count > 0%}
+	</header>
+	{% posts_in_category 'programacion' 3 as posts %}
+	{% if posts.count > 0%}
 		{% for post in posts%}
-			{% include '../fragments/post_preview.html' %}
-			<hr/>
+	{% include '../fragments/post_preview.html' %}
 		{% endfor %}
-		{% else %}
-		<article>
-		<section>
-		<h4>Sin publicaciones...</h4>
-		</section>
-		<hr/>
-		</article>
-		{% endif %}
+	{% else %}
+	<section class="full">
+	<h4>Sin publicaciones...</h4>
 	</section>
-	<section class="sections_2">
-		<a href="" class="title">Geek</a>
-		{% posts_in_category 'geek' 3 as posts %}
-		{% if posts.count > 0%}
+	{% endif %}
+</article>
+<article>
+	{% posts_in_category 'geek' 3 as posts %}
+	{% if posts.count > 0%}
+	<section class="half">
+		<header>
+			<a href="" class="title">Geek</a>
+		</header>
 		{% for post in posts%}
-			{% include '../fragments/post_minimal.html' %}
-			<hr/>
+	{% include '../fragments/post_minimal.html' %}
 		{% endfor %}
-		{% else %}
-		<article>
-		<section>
-		<h4>Sin publicaciones...</h4>
-		</section>
-		<hr/>
-		</article>
-		{% endif %}
 	</section>
-	<section class="sections_2">
-		<a href="" class="title">Literatura</a>
-		{% posts_in_category 'literatura' 3 as posts %}
-		{% if posts.count > 0%}
+	{% endif %}
+	{% posts_in_category 'literatura' 3 as posts %}
+	{% if posts.count > 0%}
+	<section class="half">
+		<header>
+			<a href="" class="title">Literatura</a>
+		</header>
 		{% for post in posts%}
-			{% include '../fragments/post_minimal.html' %}
-			<hr/>
+	{% include '../fragments/post_minimal.html' %}
 		{% endfor %}
-		{% else %}
-		<article>
-		<section>
-		<h4>Sin publicaciones...</h4>
-		</section>
-		<hr/>
-		</article>
-		{% endif %}
+	</section>
+	{% endif %}
 </article>
 {% endblock %}
-{% block footer %}{% endblock %}
 
 {% block extra_styles %}{% endblock %}
 {% block extra_scripts %}{% endblock %}

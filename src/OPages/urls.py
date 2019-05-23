@@ -15,10 +15,8 @@ Including another URLconf
 """
 from django.conf              import settings
 from django.urls              import path
-from django.contrib.flatpages import views
-
-views.DEFAULT_TEMPLATE = settings.DEFAULT_TEMPLATE
+from OPages import views
 
 urlpatterns = [
-    path('<path:url>', views.flatpage),
+    path('<path:url>', views.page),
 ]
