@@ -18,6 +18,7 @@ from django.conf.urls.static  import static
 from django.conf              import settings
 from django.urls              import path, include
 from OPages import views
+from django.conf.urls import handler400,handler403,handler404,handler500
 
 urlpatterns = [
      path('', views.page, {'url': '/home/'}, name='home'),
@@ -34,3 +35,7 @@ if settings.DEBUG:
 urlpatterns += [
     path('p/', include('OPages.urls')),
 ]
+handler400 = 'dapricot.blog.views.error_400'
+handler403 = 'dapricot.blog.views.error_403'
+handler404 = 'dapricot.blog.views.error_404'
+handler500 = 'dapricot.blog.views.error_500'
