@@ -131,3 +131,6 @@ AUTH_USER_MODEL = 'oauth.User'
 
 # OPages 
 DEFAULT_TEMPLATE = 'pages/default.html'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

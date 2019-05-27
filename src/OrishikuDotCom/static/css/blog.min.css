@@ -204,6 +204,16 @@ section.container.blog article.post aside {
     section.container.blog article.post aside.author > * {
       vertical-align: middle; }
 
+section.container.blog article.comments {
+  word-wrap: break-word; }
+  section.container.blog article.comments textarea {
+    width: 100%;
+    resize: vertical; }
+  section.container.blog article.comments input[type="text"], section.container.blog article.comments input[type="email"] {
+    width: 100%; }
+  section.container.blog article.comments aside {
+    float: right; }
+
 section.container.blog article.paginator {
   background: #009688;
   color: #FFFFFF;
