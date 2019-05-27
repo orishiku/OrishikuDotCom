@@ -21,11 +21,11 @@ from django.contrib.flatpages import views
 
 views.DEFAULT_TEMPLATE = 'Pages/default.html'
 
-from OBlog import views
+from dapricot.blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('OBlog.urls',namespace='oblog'))
+    path('', include('dapricot.blog.urls',namespace='oblog'))
 ]
 if settings.DEBUG:
     urlpatterns += static(
