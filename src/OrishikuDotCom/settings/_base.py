@@ -30,11 +30,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
+    
+    'dapricot.blog',
  
     'OrishikuDotCom.core.apps.CoreConfig',
     'OAuth.apps.OauthConfig',
     'OPages.apps.OpagesConfig',
-    'OBlog.apps.OblogConfig',
 ]
 
 MIDDLEWARE = [
@@ -77,7 +78,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             'libraries':{
-                'blog_tags' : 'OBlog.templatetags.posts_tags',
+                'blog_tags' : 'dapricot.blog.templatetags.posts_tags',
             }
         },
     },

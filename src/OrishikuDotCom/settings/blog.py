@@ -28,3 +28,11 @@ STATICFILES_DIRS += []
 # https://docs.djangoproject.com/en/2.2/ref/contrib/sites/
 
 SITE_ID = 2
+
+keyConfigs = SettingsFile(os.path.join(ROOT_DIR,'secrets','mailgun.txt'))
+
+EMAIL_HOST = 'smtp.mailgun.org'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = keyConfigs.getKey('EMAIL')
+EMAIL_HOST_PASSWORD = keyConfigs.getKey('PASSWORD')
+EMAIL_USE_TLS = True
