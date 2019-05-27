@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#ssh -C orishiku@134.209.8.96 ~/dumpDB.sh; scp -r orishiku@134.209.8.96:~/dumpdb.json /home/orishiku/Workspace/Web/OrishikuDotCom/;python src/manage.py loaddata dumpdb.json --settings=OrishikuDotCom.settings.blogDev
 while getopts p:b: option
 do
 case "${option}"

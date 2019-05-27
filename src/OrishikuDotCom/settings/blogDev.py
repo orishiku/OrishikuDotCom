@@ -8,8 +8,6 @@ keyConfigs = SettingsFile(os.path.join(ROOT_DIR,'secrets','keys.txt'))
 
 SECRET_KEY = keyConfigs.getKey('SECRET_KEY')
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-
 # Application definition
 
 INSTALLED_APPS += []

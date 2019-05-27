@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}404{% endblock %}
+{% block extra_styles %}<link rel="stylesheet" href="{% static 'css/errors.min.css' %}">{% endblock %}
+{% block container %}
+<section class="container {{ request.site.name }}">
+<article class="title">
+<h1>Oops!</h1>
+<h4>Error <b>500</b></h4>
+</article>
+<article class="content">
+<section>
+<h1>Parece ser que hubo un error</h1>
+
+</section>
+<aside>
+<a href="/" class="button button-primary icon-left-open">Regresar al inicio</a>
+</aside>
+</article>
+</section>
+{% endblock %}
