@@ -31,10 +31,12 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
     
+    'dapricot.core',
+    'dapricot.auth',
     'dapricot.blog',
  
     'OrishikuDotCom.core.apps.CoreConfig',
-    'OAuth.apps.OauthConfig',
+    
     'OPages.apps.OpagesConfig',
 ]
 
