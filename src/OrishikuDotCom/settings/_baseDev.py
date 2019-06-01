@@ -24,6 +24,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
+    'dapricot.auth',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -33,11 +34,11 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
     
+    'dapricot.core',
     'dapricot.blog',
+    'dapricot.pages',
  
     'OrishikuDotCom.core.apps.CoreConfig',
-    'OAuth.apps.OauthConfig',
-    'OPages.apps.OpagesConfig',
 ]
 
 MIDDLEWARE = [
@@ -129,7 +130,7 @@ MEDIA_URL  = '/media/'
 MEDIA_ROOT = os.path.join(ROOT_DIR, 'MEDIA')
 
 # OAuth
-AUTH_USER_MODEL = 'oauth.User'
+AUTH_USER_MODEL = 'daauth.User'
 
 # OPages 
 DEFAULT_TEMPLATE = 'pages/default.html'

@@ -35,10 +35,10 @@ if settings.DEBUG:
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += [
-    path('p/', include('OPages.urls')),
+    path('p/', include('dapricot.pages.urls')),
 ]
 
-handler400 = 'dapricot.blog.views.error_400'
-handler403 = 'dapricot.blog.views.error_403'
-handler404 = 'dapricot.blog.views.error_404'
-handler500 = 'dapricot.blog.views.error_500'
+handler400 = 'dapricot.core.views.error_400'
+handler403 = 'dapricot.core.views.error_403'
+handler404 = 'dapricot.core.views.error_404'
+handler500 = 'dapricot.core.views.error_500'
