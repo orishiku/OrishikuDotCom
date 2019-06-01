@@ -11,3 +11,8 @@ class Page(FlatPage):
         help_text=_("If this is checked, the page will be visible in main menu."),
         default=False,
     )
+    
+    class Meta:
+        verbose_name = _('page')
+        verbose_name_plural = _('pages')
+        db_table = 'dapricot_pages_page'
