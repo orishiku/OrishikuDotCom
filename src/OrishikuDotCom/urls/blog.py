@@ -35,7 +35,7 @@ if settings.DEBUG:
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += [
-    path('p/', include('OPages.urls')),
+    path('p/', include('dapricot.pages.urls')),
 ]
 
 handler400 = 'dapricot.core.views.error_400'
