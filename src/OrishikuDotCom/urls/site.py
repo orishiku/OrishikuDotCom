@@ -18,10 +18,10 @@ from django.conf.urls.static  import static
 from django.conf              import settings
 from django.urls              import path, include
 from django.conf.urls import handler400,handler403,handler404,handler500
-from dapricot.pages import views
+from django.contrib.flatpages import views
 
 urlpatterns = [
-     path('', views.page, {'url': '/home/'}, name='home'),
+     path('', views.flatpage, {'url': '/home/'}, name='home'),
     path('admin/', admin.site.urls),
     path('', include('dapricot.webhooks.urls')),
 ]
@@ -33,7 +33,7 @@ if settings.DEBUG:
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += [
-    path('p/', include('dapricot.pages.urls')),
+    path('p/', include('django.contrib.flatpages.urls')),
 ]
 handler400 = 'dapricot.core.views.error_400'
 handler403 = 'dapricot.core.views.error_403'

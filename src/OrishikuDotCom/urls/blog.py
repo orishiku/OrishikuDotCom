@@ -17,10 +17,10 @@ from django.contrib              import admin
 from django.conf.urls.static     import static
 from django.conf                 import settings
 from django.urls                 import path, include
-from django.contrib.flatpages import views as fpviews
+from django.contrib.flatpages import views
 from django.conf.urls import handler400,handler403,handler404,handler500
 
-fpviews.DEFAULT_TEMPLATE = 'Pages/default.html'
+views.DEFAULT_TEMPLATE = 'pages/default.html'
 
 from dapricot.blog import views
 
@@ -35,7 +35,7 @@ if settings.DEBUG:
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += [
-    path('p/', include('dapricot.pages.urls')),
+    path('p/', include('django.contrib.flatpages.urls')),
 ]
 
 handler400 = 'dapricot.core.views.error_400'

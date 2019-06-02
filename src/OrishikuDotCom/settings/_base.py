@@ -22,7 +22,6 @@ DEBUG = False
 
 # Application definition
 INSTALLED_APPS = [
-    'dapricot.auth',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -32,9 +31,11 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
     
+    'dapricot.auth',
     'dapricot.core',
     'dapricot.blog',
-    'dapricot.pages',
+    'dapricot.media',
+    #'dapricot.pages',
  
     'OrishikuDotCom.core.apps.CoreConfig',
 ]
@@ -148,3 +149,5 @@ SECURE_CONTENT_TYPE_NOSNIFF    = True
 SECURE_BROWSER_XSS_FILTER      = True
 X_FRAME_OPTIONS                = 'DENY'
 SECURE_HSTS_PRELOAD            = True
+
+USERNAME_FIELD = 'email'

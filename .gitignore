@@ -67,3 +67,5 @@ target/
 *.sqlite3
 
 dapricot-0\.1\.tar\.gz
+
+Pipfile

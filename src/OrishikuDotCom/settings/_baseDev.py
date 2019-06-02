@@ -24,7 +24,6 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
-    'dapricot.auth',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -34,9 +33,11 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
     
+    'dapricot.auth',
     'dapricot.core',
     'dapricot.blog',
-    'dapricot.pages',
+    'dapricot.media',
+    #'dapricot.pages',
  
     'OrishikuDotCom.core.apps.CoreConfig',
 ]
@@ -135,5 +136,6 @@ AUTH_USER_MODEL = 'daauth.User'
 # OPages 
 DEFAULT_TEMPLATE = 'pages/default.html'
 
-
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+USERNAME_FIELD = 'email'
