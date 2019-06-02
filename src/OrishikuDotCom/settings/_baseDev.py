@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     
     'dapricot.core',
     'dapricot.blog',
-    'dapricot.pages',
+    #'dapricot.pages',
  
     'OrishikuDotCom.core.apps.CoreConfig',
 ]
