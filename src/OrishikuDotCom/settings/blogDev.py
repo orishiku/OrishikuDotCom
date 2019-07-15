@@ -8,6 +8,8 @@ keyConfigs = SettingsFile(os.path.join(ROOT_DIR,'secrets','keys.txt'))
 
 SECRET_KEY = keyConfigs.getKey('SECRET_KEY')
 
+ALLOWED_HOSTS = ['dev.orishiku',]
+
 # Application definition
 
 INSTALLED_APPS += []
@@ -25,4 +27,4 @@ STATICFILES_DIRS += []
 # Sites 
 # https://docs.djangoproject.com/en/2.2/ref/contrib/sites/
 
-SITE_ID = 2
+SITE_ID = 1
