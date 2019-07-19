@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'dapricot.core',
     'dapricot.blog',
     'dapricot.media',
-    #'dapricot.pages',
+    'dapricot.pages',
 
 ]
 
