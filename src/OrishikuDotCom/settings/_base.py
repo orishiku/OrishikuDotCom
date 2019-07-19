@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from OrishikuDotCom.core.utils.files import SettingsFile
+from OrishikuDotCom.utils.files import SettingsFile
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -36,8 +36,7 @@ INSTALLED_APPS = [
     'dapricot.blog',
     'dapricot.media',
     #'dapricot.pages',
- 
-    'OrishikuDotCom.core.apps.CoreConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -54,17 +53,31 @@ MIDDLEWARE = [
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-dataConfigs = SettingsFile(os.path.join(ROOT_DIR,'secrets','database.txt'))
-DATABASES = {
-    'default': {
-        'ENGINE':   dataConfigs.getKey('ENGINE'),
-        'NAME':     dataConfigs.getKey('NAME'),
-        'USER':     dataConfigs.getKey('USER'),
-        'PASSWORD': dataConfigs.getKey('PASSWORD'),
-        'HOST':     dataConfigs.getKey('HOST'),
-        'PORT':     dataConfigs.getKey('PORT'),
+try:
+    dataConfigs = SettingsFile(os.path.join(ROOT_DIR,'secrets','database.txt'))
+    
+    DATABASES = {
+        'default': {
+            'ENGINE':   dataConfigs.getKey('ENGINE'),
+            'NAME':     dataConfigs.getKey('NAME'),
+            'USER':     dataConfigs.getKey('USER'),
+            'PASSWORD': dataConfigs.getKey('PASSWORD'),
+            'HOST':     dataConfigs.getKey('HOST'),
+            'PORT':     dataConfigs.getKey('PORT'),
+        },
+        'setup': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'setup.sqlite3'),
+        }
     }
-}
+except Exception as e:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'setup.sqlite3'),
+        }
+    }
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -122,8 +135,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
-
 STATIC_URL  = '/static/'
 STATIC_ROOT = os.path.join(ROOT_DIR, 'STATIC')
 STATICFILES_DIRS = [
@@ -138,16 +149,5 @@ AUTH_USER_MODEL = 'daauth.User'
 
 # OPages 
 DEFAULT_TEMPLATE = 'pages/default.html'
-
-SECURE_PROXY_SSL_HEADER        = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT            = True
-SESSION_COOKIE_SECURE          = True
-CSRF_COOKIE_SECURE             = True
-SECURE_HSTS_SECONDS            = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_CONTENT_TYPE_NOSNIFF    = True
-SECURE_BROWSER_XSS_FILTER      = True
-X_FRAME_OPTIONS                = 'DENY'
-SECURE_HSTS_PRELOAD            = True
 
 USERNAME_FIELD = 'email'
