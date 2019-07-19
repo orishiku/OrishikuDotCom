@@ -1,4 +1,4 @@
-from OrishikuDotCom.settings._base import *
+from OrishikuDotCom.settings._baseDev import *
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -6,19 +6,17 @@ from OrishikuDotCom.settings._base import *
 # SECURITY WARNING: keep the secret key used in production secret!
 keyConfigs = SettingsFile(os.path.join(ROOT_DIR,'secrets','keys.txt'))
 
-SECRET_KEY         = keyConfigs.getKey('SECRET_KEY')
+SECRET_KEY = keyConfigs.getKey('SECRET_KEY')
 
-ALLOWED_HOSTS = ['orishiku.com', 'www.orishiku.com']
+ALLOWED_HOSTS = ['dev.orishiku','localhost']
 
 # Application definition
 
-INSTALLED_APPS += [
-    'dapricot.webhooks',
-]
+INSTALLED_APPS += []
+    
+ROOT_URLCONF = 'OrishikuDotCom.urls.demo'
 
-ROOT_URLCONF = 'OrishikuDotCom.urls.site'
-
-WSGI_APPLICATION = 'OrishikuDotCom.wsgi.site.application'
+WSGI_APPLICATION = 'OrishikuDotCom.wsgi.demo.application'
 
 TEMPLATES[0]['DIRS'] += []
 
@@ -27,8 +25,5 @@ STATICFILES_DIRS += []
 # Sites 
 # https://docs.djangoproject.com/en/2.2/ref/contrib/sites/
 
-SITE_ID = 1
+SITE_ID = 3
 
-# DAPRICOT WEBHOOKS
-DEPLOY_BRANCH = 'release/alpha_1.0'
-GITHUB_WEBHOOK_KEY = keyConfigs.getKey('GITHUB_WEBHOOK_KEY')
