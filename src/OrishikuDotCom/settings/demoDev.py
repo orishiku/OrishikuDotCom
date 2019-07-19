@@ -8,23 +8,22 @@ keyConfigs = SettingsFile(os.path.join(ROOT_DIR,'secrets','keys.txt'))
 
 SECRET_KEY = keyConfigs.getKey('SECRET_KEY')
 
-ALLOWED_HOSTS = ['dev.orishiku',]
+ALLOWED_HOSTS = ['dev.orishiku','localhost']
 
 # Application definition
 
 INSTALLED_APPS += []
+    
+ROOT_URLCONF = 'OrishikuDotCom.urls.demo'
 
-ROOT_URLCONF = 'OrishikuDotCom.urls.blog'
+WSGI_APPLICATION = 'OrishikuDotCom.wsgi.demo.application'
 
-WSGI_APPLICATION = 'OrishikuDotCom.wsgi.blog.application'
-
-TEMPLATES[0]['DIRS'] += [
-    os.path.join(BASE_DIR, 'OBlog', 'templates'),
-]
+TEMPLATES[0]['DIRS'] += []
 
 STATICFILES_DIRS += []
 
 # Sites 
 # https://docs.djangoproject.com/en/2.2/ref/contrib/sites/
 
-SITE_ID = 1
+SITE_ID = 3
+

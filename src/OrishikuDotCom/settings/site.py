@@ -7,14 +7,13 @@ from OrishikuDotCom.settings._base import *
 keyConfigs = SettingsFile(os.path.join(ROOT_DIR,'secrets','keys.txt'))
 
 SECRET_KEY         = keyConfigs.getKey('SECRET_KEY')
-GITHUB_WEBHOOK_KEY = keyConfigs.getKey('GITHUB_WEBHOOK_KEY')
 
 ALLOWED_HOSTS = ['orishiku.com', 'www.orishiku.com']
 
 # Application definition
 
 INSTALLED_APPS += [
-    'OHook.apps.OhookConfig',
+    'dapricot.webhooks',
 ]
 
 ROOT_URLCONF = 'OrishikuDotCom.urls.site'
@@ -29,3 +28,7 @@ STATICFILES_DIRS += []
 # https://docs.djangoproject.com/en/2.2/ref/contrib/sites/
 
 SITE_ID = 1
+
+# DAPRICOT WEBHOOKS
+DEPLOY_BRANCH = 'release/alpha_1.0'
+GITHUB_WEBHOOK_KEY = keyConfigs.getKey('GITHUB_WEBHOOK_KEY')

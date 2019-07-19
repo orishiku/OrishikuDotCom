@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from OrishikuDotCom.core.utils.files import SettingsFile
+from OrishikuDotCom.utils.files import SettingsFile
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -33,11 +33,12 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
     
+    'dapricot.auth',
+    'dapricot.core',
     'dapricot.blog',
+    'dapricot.media',
+    'dapricot.pages',
  
-    'OrishikuDotCom.core.apps.CoreConfig',
-    'OAuth.apps.OauthConfig',
-    'OPages.apps.OpagesConfig',
 ]
 
 MIDDLEWARE = [
@@ -129,10 +130,11 @@ MEDIA_URL  = '/media/'
 MEDIA_ROOT = os.path.join(ROOT_DIR, 'MEDIA')
 
 # OAuth
-AUTH_USER_MODEL = 'oauth.User'
+AUTH_USER_MODEL = 'daauth.User'
 
 # OPages 
 DEFAULT_TEMPLATE = 'pages/default.html'
 
-
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+USERNAME_FIELD = 'email'
