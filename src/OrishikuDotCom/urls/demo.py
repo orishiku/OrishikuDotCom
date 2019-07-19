@@ -26,7 +26,6 @@ views.DEFAULT_TEMPLATE = 'dapricot/default.html'
 urlpatterns = [
     path('', views.page, {'url': '/home/'}, name='home'),
     path('admin/', admin.site.urls),
-    path('', include('dapricot.webhooks.urls')),
 ]
 
 if settings.DEBUG:

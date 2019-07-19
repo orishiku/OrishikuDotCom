@@ -46,42 +46,42 @@ table {
 
 body {
   color: #212121;
-  font-family: "Helvetica", sans-serif;
+  font-family: "Garamond", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 100%; }
 
 h1 {
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Times New Roman", sans-serif;
   font-size: 40px;
   font-size: 2.5rem; }
 
 h2 {
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Times New Roman", sans-serif;
   font-size: 32px;
   font-size: 2rem; }
 
 h3 {
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Times New Roman", sans-serif;
   font-size: 26px;
   font-size: 1.625rem; }
 
 h4 {
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Times New Roman", sans-serif;
   font-size: 22px;
   font-size: 1.375rem; }
 
 h5 {
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Times New Roman", sans-serif;
   font-size: 20px;
   font-size: 1.25rem; }
 
 h6 {
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Times New Roman", sans-serif;
   font-size: 16px;
   font-size: 1rem; }
 
 p {
-  font-family: "Helvetica", sans-serif;
+  font-family: "Garamond", sans-serif;
   font-size: 16px;
   font-size: 1rem;
   margin: 1em 0; }
@@ -2247,7 +2247,7 @@ div.main {
       position: absolute;
       top: 20px;
       right: 20px;
-      font-family: "Trebuchet MS", sans-serif;
+      font-family: "Times New Roman", sans-serif;
       font-size: 40px;
       font-size: 2.5rem;
       font-weight: bold;
@@ -2296,7 +2296,7 @@ div.main {
       div.main > header nav a {
         background-color: #673AB7;
         color: #FFFFFF;
-        font-family: "Trebuchet MS", sans-serif;
+        font-family: "Times New Roman", sans-serif;
         font-size: 26px;
         font-size: 1.625rem;
         padding: 10px 15px;
@@ -2390,7 +2390,7 @@ div.main {
       div.main > .container > article.title {
         border-width: 0px 0px 0px 3px;
         bordeR-color: #673AB7;
-        font-family: "Trebuchet MS", sans-serif;
+        font-family: "Times New Roman", sans-serif;
         font-size: 32px;
         font-size: 2rem;
         padding: 20px; }
@@ -2405,7 +2405,7 @@ div.main {
         width: 100%;
         margin-left: 0%;
         margin-right: 0;
-        font-family: "Trebuchet MS", sans-serif;
+        font-family: "Times New Roman", sans-serif;
         font-size: 26px;
         font-size: 1.625rem;
         height: 50px;

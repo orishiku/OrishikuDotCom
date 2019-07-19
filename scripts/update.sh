@@ -1,5 +1,8 @@
 #!/bin/bash
 #ssh -C orishiku@134.209.8.96 ~/dumpDB.sh; scp -r orishiku@134.209.8.96:~/dumpdb.json /home/orishiku/Workspace/Web/OrishikuDotCom/;python src/manage.py loaddata dumpdb.json --settings=OrishikuDotCom.settings.blogDev
+#./update.sh -p /home/orishiku/OrishikuDotCom/  -b release/alpha_1.0
+
+#https://askubuntu.com/questions/155791/how-do-i-sudo-a-command-in-a-script-without-being-asked-for-a-password
 while getopts p:b: option
 do
 case "${option}"
@@ -47,14 +50,12 @@ if [ "$ROOT_PATH" != "" ]; then
 	# Restart wsgi servers
 	echo ""
 	echo -e "\e[33m-- Reload wsgi server --\e[39m";
-	
+
 	# delay to give webhook oportunity to get an answer from django
 	echo ""
 	echo -e -n "\e[5mwait..."
 	sleep 5;
-	
-	touch src/OrishikuDotCom/wsgi/site;
-	touch src/OrishikuDotCom/wsgi/blog;
+	service apache2 restart;
 	echo -e "\r\e[0mdone   "
 	echo ""
 else
