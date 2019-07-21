@@ -17,6 +17,7 @@ from django.contrib           import admin
 from django.conf.urls.static  import static
 from django.conf              import settings
 from django.urls              import path, include
+from django.views.generic.base import RedirectView
 from django.conf.urls         import handler400,handler403,handler404,handler500
 
 from dapricot.pages import views
@@ -26,6 +27,8 @@ views.DEFAULT_TEMPLATE = 'dapricot/default.html'
 urlpatterns = [
     path('', views.page, {'url': '/home/'}, name='home'),
     path('admin/', admin.site.urls),
+    path('trackingDemo/', include('trackingDemo.urls')),
+    #path('trackingDemo/', RedirectView.as_view(url='https://demo.orishiku.com/trackingDemo/')),
     path('', include('dapricot.webhooks.urls')),
 ]
 

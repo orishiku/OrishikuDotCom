@@ -14,6 +14,7 @@ ALLOWED_HOSTS = ['orishiku.com', 'www.orishiku.com']
 
 INSTALLED_APPS += [
     'dapricot.webhooks',
+    'trackingDemo',
 ]
 
 ROOT_URLCONF = 'OrishikuDotCom.urls.site'
@@ -32,3 +33,12 @@ SITE_ID = 1
 # DAPRICOT WEBHOOKS
 DEPLOY_BRANCH = 'release/alpha_1.0'
 GITHUB_WEBHOOK_KEY = keyConfigs.getKey('GITHUB_WEBHOOK_KEY')
+
+import firebase_admin
+
+FIREBASE_KEY = os.path.join(ROOT_DIR, "secrets", 
+                            "trackingpipe-firebase-adminsdk-wsqc0-e8758c4a92.json")
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = FIREBASE_KEY
+
+default_app = firebase_admin.initialize_app()
