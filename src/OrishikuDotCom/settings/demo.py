@@ -26,5 +26,3 @@ STATICFILES_DIRS += []
 # https://docs.djangoproject.com/en/2.2/ref/contrib/sites/
 
 SITE_ID = 3
-
-

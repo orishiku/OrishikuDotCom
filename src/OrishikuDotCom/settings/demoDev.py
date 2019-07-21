@@ -12,7 +12,7 @@ ALLOWED_HOSTS = ['dev.orishiku','localhost']
 
 # Application definition
 
-INSTALLED_APPS += []
+INSTALLED_APPS += ['trackingDemo',]
     
 ROOT_URLCONF = 'OrishikuDotCom.urls.demo'
 
@@ -27,3 +27,5 @@ STATICFILES_DIRS += []
 
 SITE_ID = 3
 
+FIREBASE_KEY = os.path.join(ROOT_DIR, "secrets", 
+                            "trackingpipe-firebase-adminsdk-wsqc0-e8758c4a92.json")
